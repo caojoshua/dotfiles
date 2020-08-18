@@ -1,8 +1,13 @@
 
 set nocompatible
 
+" automatic vim plug installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin()
-Plug 'vim-airline/vim-airline'
 Plug 'universal-ctags/ctags'
 Plug 'portante/cscope'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -19,7 +24,6 @@ call plug#end()
 " plugin global variables
 
 let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/.ycm_extra_conf.py"
-" let g:ycm_show_diagnostics_ui = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_select_completion = ['<TAB>', 'C-n']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', 'C-n']
@@ -56,6 +60,14 @@ set laststatus=2
 set ruler
 set wildmenu
 
+" statusline
+set statusline=
+set statusline+=%f
+set statusline+=%=
+set statusline+=%m
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding}
+set statusline+=\ %l:%c
 
 " mappings
 let mapleader = " "
