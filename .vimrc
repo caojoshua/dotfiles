@@ -1,7 +1,5 @@
-
-set nocompatible
-
-" automatic vim plug installation
+" ---------- Plugins ----------
+" vim plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -14,6 +12,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/NERDTree', {'on': 'NERDTreeToggle'}
+Plug 'majutsushi/tagbar'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -21,15 +20,14 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ycm-core/YouCompleteMe', {'on': 'Foo'}
 call plug#end()
 
-" plugin global variables
-
-let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/.ycm_extra_conf.py"
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_key_list_select_completion = ['<TAB>', 'C-n']
-let g:ycm_key_list_previous_completion = ['<S-TAB>', 'C-n']
-
 filetype indent plugin on
 syntax on
+
+
+" ---------- Options ----------
+
+" don't attempt to be compatible with vi 
+set nocompatible
 
 " allow project specific .vimrc
 set exrc
@@ -69,7 +67,8 @@ set statusline+=\ %y
 set statusline+=\ %{&fileencoding}
 set statusline+=\ %l:%c
 
-" mappings
+
+" ---------- mappings ----------
 let mapleader = " "
 
 " window mapping
@@ -85,6 +84,18 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>af :Autoformat<CR>
 
+" grep
+nnoremap <leader>g :grep 
+nnoremap <leader>gc :grep <cword> . -r<CR><CR>
+
+" quickfix-window
+" :help quickfix-window
+nnoremap <leader>co :copen<CR>
+nnoremap <leader>cc :cclose<CR>
+
+
+" ---------- Plugin global vars and mappings ----------
+
 " cscope
 if filereadable("cscope.out")
   cs add cscope.out
@@ -99,23 +110,21 @@ nnoremap <C-\>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR>
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 
-" ycm
-nnoremap <leader>yg :YcmCompleter GoToImprecise<CR>
-nnoremap <leader>df :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
-
 " fzf
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>ft :Tags<CR>
 
-" grep
-nnoremap <leader>g :grep 
-nnoremap <leader>gc :grep <cword> . -r<CR><CR>
+" tagbar
+let g:tagbar_sort = 0
+let g:tagbar_foldlevel = 0
+nnoremap <leader>tb :TagbarOpen f j<CR>
 
-" quickfix-window
-" :help quickfix-window
-nnoremap <leader>co :copen<CR>
-nnoremap <leader>cc :cclose<CR>
-
-
+" ycm
+let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/.ycm_extra_conf.py"
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_key_list_select_completion = ['<TAB>', 'C-n']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', 'C-n']
+nnoremap <leader>yg :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>df :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
