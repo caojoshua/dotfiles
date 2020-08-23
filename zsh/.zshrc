@@ -22,8 +22,10 @@ bindkey -v '^?' backward-delete-char
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+bindkey '^L' autosuggest-accept
+
 # plugins
-syntax_highlighting=~/dotfiles/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-[ -f ${syntax_highlighting} ] && source ${syntax_highlighting}
 autosuggestions=~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 [ -f ${autosuggestoins} ] && source ${autosuggestions} ]
+syntax_highlighting=~/dotfiles/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+[ -f ${syntax_highlighting} ] && source ${syntax_highlighting}
