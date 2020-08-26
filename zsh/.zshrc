@@ -26,6 +26,6 @@ bindkey '^L' autosuggest-accept
 
 # plugins
 autosuggestions=~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-[ -f ${autosuggestoins} ] && source ${autosuggestions} ]
+[ -f ${autosuggestions} ] && source ${autosuggestions}
 syntax_highlighting=~/dotfiles/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 [ -f ${syntax_highlighting} ] && source ${syntax_highlighting}
