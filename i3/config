@@ -39,15 +39,15 @@ bindsym $mod+q kill
 bindsym $mod+d exec dmenu_run
 
 # change focus
-bindsym $mod+ctrl+h focus left
-bindsym $mod+ctrl+j focus down
-bindsym $mod+ctrl+k focus up
-bindsym $mod+ctrl+l focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # move to workspace
-bindsym $mod+n workspace next
-bindsym $mod+p workspace prev
-bindsym $mod+l workspace back_and_forth
+bindsym $mod+ctrl+n workspace next
+bindsym $mod+ctrl+p workspace prev
+bindsym $mod+ctrl+l workspace back_and_forth
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -55,7 +55,7 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# split in horizontal orientation
+# toggle split next container vertical/horizonte
 bindsym $mod+minus split toggle
 
 # enter fullscreen mode for the focused container

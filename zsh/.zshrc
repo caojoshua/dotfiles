@@ -1,6 +1,6 @@
 # .zshrc
 
-export PROMPT="%(?.%F{green}.%F{red})[%3~]%(!.#.$)%f "
+export PS1="%F{cyan}%m %(?.%F{green}.%F{red})[%5~]%(!.#.$)%f "
 
 # OPTIONS: man zshoptions
 setopt AUTO_CD
