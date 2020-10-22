@@ -22,7 +22,7 @@ bindkey -v '^?' backward-delete-char
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-bindkey '^L' autosuggest-accept
+bindkey '^]' autosuggest-accept
 
 # plugins
 autosuggestions=~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh

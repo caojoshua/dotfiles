@@ -6,17 +6,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
-Plug 'universal-ctags/ctags'
-Plug 'portante/cscope'
+Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/NERDTree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-obsession'
+Plug 'luochen1990/rainbow'
+Plug 'jremmen/vim-ripgrep'
 Plug 'majutsushi/tagbar'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ycm-core/YouCompleteMe', {'on': 'Foo'}
 call plug#end()
@@ -51,6 +53,10 @@ set smarttab
 set number
 set relativenumber
 
+" backups
+set dir=~/tmp/swp
+set swapfile
+
 " misc
 set autoread
 set background=dark
@@ -64,8 +70,6 @@ set statusline=
 set statusline+=%f
 set statusline+=%=
 set statusline+=%m
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding}
 set statusline+=\ %l:%c
 
 
@@ -98,9 +102,6 @@ nnoremap <leader>cc :cclose<CR>
 " ---------- Plugin global vars and mappings ----------
 
 " cscope
-if filereadable("cscope.out")
-  cs add cscope.out
-endif
 nnoremap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
@@ -116,7 +117,11 @@ nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>ft :Tags<CR>
 
+" rainbow
+let g:rainbow_active = 1
+
 " tagbar
+let g:tagbar_position = "bottom"
 let g:tagbar_sort = 0
 let g:tagbar_foldlevel = 0
 nnoremap <leader>tb :TagbarOpen f j<CR>

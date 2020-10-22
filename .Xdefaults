@@ -1,6 +1,6 @@
 URxvt.background: Black
 URxvt.foreground: White
-URxvt.font: xft:Monospace:pixelsize=18
+URxvt.font: xft:Monospace:pixelsize=22
 URxvt.scrollBar: false
 
 URxvt.perl-ext-common: default,keyboard-select,url-select
