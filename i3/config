@@ -1,9 +1,7 @@
 # Joshua Cao's i3 config file
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set windows key as main modifier
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -47,7 +45,7 @@ bindsym $mod+l focus right
 # move to workspace
 bindsym $mod+ctrl+n workspace next
 bindsym $mod+ctrl+p workspace prev
-bindsym $mod+ctrl+l workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 
 # move focused window
 bindsym $mod+Shift+h move left

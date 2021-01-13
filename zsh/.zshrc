@@ -22,7 +22,10 @@ bindkey -v '^?' backward-delete-char
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# autosuggestion hotkey
 bindkey '^]' autosuggest-accept
+# autosuggestions from vi normal mode
+bindkey -M vicmd -s '^]' 'A^]'
 
 # plugins
 autosuggestions=~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh

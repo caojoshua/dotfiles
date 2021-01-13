@@ -6,10 +6,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
+Plug 'dense-analysis/ale'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
 Plug 'preservim/NERDTree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-obsession'
 Plug 'luochen1990/rainbow'
@@ -17,10 +19,19 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'majutsushi/tagbar'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
+Plug 'starcraftman/vim-eclim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ycm-core/YouCompleteMe', {'on': 'Foo'}
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 call plug#end()
 
 filetype indent plugin on
@@ -101,6 +112,10 @@ nnoremap <leader>cc :cclose<CR>
 
 " ---------- Plugin global vars and mappings ----------
 
+" ale
+" disable by default
+let g:ale_disable_lsp = 1
+
 " cscope
 nnoremap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
@@ -112,10 +127,16 @@ nnoremap <C-\>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR>
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
 " fzf
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>ft :Tags<CR>
+
+" git gutter
+nnoremap <leader>gq :GitGutterQuickFix<CR>:copen<CR>
 
 " rainbow
 let g:rainbow_active = 1
