@@ -6,7 +6,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
-Plug 'dense-analysis/ale'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -18,29 +17,28 @@ Plug 'luochen1990/rainbow'
 Plug 'jremmen/vim-ripgrep'
 Plug 'majutsushi/tagbar'
 Plug 'Chiel92/vim-autoformat'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
-Plug 'starcraftman/vim-eclim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ycm-core/YouCompleteMe', {'on': 'Foo'}
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 call plug#end()
 
 filetype indent plugin on
 syntax on
 
+" ---------- Startup Script ----------
+let s:swp_dir = $HOME . "/.vim/swap"
+if empty(glob(s:swp_dir))
+  call mkdir(s:swp_dir, "p", 0700)
+endif
+
 
 " ---------- Options ----------
 
-" don't attempt to be compatible with vi 
+" don't attempt to be compatible with vi
 set nocompatible
 
 " allow project specific .vimrc
@@ -65,7 +63,7 @@ set number
 set relativenumber
 
 " backups
-set dir=~/tmp/swp
+let &dir = s:swp_dir
 set swapfile
 
 " misc
@@ -98,14 +96,10 @@ nnoremap <Bar> :vsplit<CR>
 " normal mapping shotcuts
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>rg :Rg<Space>
 nnoremap <leader>af :Autoformat<CR>
 
-" grep
-nnoremap <leader>g :grep 
-nnoremap <leader>gc :grep <cword> . -r<CR><CR>
-
 " quickfix-window
-" :help quickfix-window
 nnoremap <leader>co :copen<CR>
 nnoremap <leader>cc :cclose<CR>
 
@@ -127,9 +121,6 @@ nnoremap <C-\>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR>
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-
 " fzf
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fb :Buffers<CR>
@@ -138,6 +129,9 @@ nnoremap <leader>ft :Tags<CR>
 " git gutter
 nnoremap <leader>gq :GitGutterQuickFix<CR>:copen<CR>
 
+" indentLine
+let g:indentLine_char = '┊'
+
 " rainbow
 let g:rainbow_active = 1
 
@@ -145,13 +139,5 @@ let g:rainbow_active = 1
 let g:tagbar_position = "bottom"
 let g:tagbar_sort = 0
 let g:tagbar_foldlevel = 0
+let g:tagbar_show_linenumbers = 2
 nnoremap <leader>tb :TagbarOpen f j<CR>
-
-" ycm
-let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/.ycm_extra_conf.py"
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_key_list_select_completion = ['<TAB>', 'C-n']
-let g:ycm_key_list_previous_completion = ['<S-TAB>', 'C-n']
-nnoremap <leader>yg :YcmCompleter GoToImprecise<CR>
-nnoremap <leader>df :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>

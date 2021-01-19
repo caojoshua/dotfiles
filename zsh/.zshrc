@@ -20,15 +20,23 @@ bindkey '^e' edit-command-line
 # weird backspace issue with vi mode
 bindkey -v '^?' backward-delete-char
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # autosuggestion hotkey
 bindkey '^]' autosuggest-accept
 # autosuggestions from vi normal mode
 bindkey -M vicmd -s '^]' 'A^]'
 
+# aliases
+alias g=git
+alias e=${EDITOR}
+
+
 # plugins
+
+fzf=~/.fzf.zsh
+[ -f ${fzf} ] && source ${fzf}
+
 autosuggestions=~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 [ -f ${autosuggestions} ] && source ${autosuggestions}
+
 syntax_highlighting=~/dotfiles/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 [ -f ${syntax_highlighting} ] && source ${syntax_highlighting}
