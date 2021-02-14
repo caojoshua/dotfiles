@@ -121,13 +121,13 @@ nnoremap <C-\>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR>
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 
+" easy motion
+nmap , <Plug>(easymotion-prefix)
+
 " fzf
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>ft :Tags<CR>
-
-" git gutter
-nnoremap <leader>gq :GitGutterQuickFix<CR>:copen<CR>
 
 " indentLine
 let g:indentLine_char = '┊'

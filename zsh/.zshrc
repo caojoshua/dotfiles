@@ -28,6 +28,7 @@ bindkey -M vicmd -s '^]' 'A^]'
 # aliases
 alias g=git
 alias e=${EDITOR}
+alias t=tmux
 
 
 # plugins
