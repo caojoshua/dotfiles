@@ -24,6 +24,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
+if has('nvim')
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/completion-nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+endif
 call plug#end()
 
 filetype indent plugin on
@@ -69,6 +75,7 @@ set swapfile
 " misc
 set autoread
 set background=dark
+set completeopt=menu,noinsert,noselect
 set hidden
 set laststatus=2
 set ruler
