@@ -29,6 +29,9 @@ if has('nvim')
   Plug 'nvim-lua/completion-nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  " color
+  Plug 'rktjmp/lush.nvim', { 'branch': 'main' }
+  Plug 'npxbr/gruvbox.nvim', { 'branch': 'main' }
 endif
 call plug#end()
 
@@ -79,6 +82,7 @@ set completeopt=menu,noinsert,noselect
 set hidden
 set laststatus=2
 set ruler
+set termguicolors
 set wildmenu
 
 " statusline
@@ -112,10 +116,6 @@ nnoremap <leader>cc :cclose<CR>
 
 
 " ---------- Plugin global vars and mappings ----------
-
-" ale
-" disable by default
-let g:ale_disable_lsp = 1
 
 " cscope
 nnoremap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>

@@ -28,7 +28,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -146,6 +146,6 @@ bindsym $mod+shift+comma move workspace to output left
 bindsym $mod+shift+period move workspace to output right
 
 # startup programs
-exec i3-msg "workspace $ws1; exec urxvt"
+exec i3-msg "workspace $ws1; exec alacritty"
 exec i3-msg "workspace $ws2; exec firefox"
 exec i3-msg "workspace $ws1"
