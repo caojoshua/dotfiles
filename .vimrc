@@ -6,6 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
+Plug 'jiangmiao/auto-pairs'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -25,10 +26,16 @@ Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 if has('nvim')
+  Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-lua/completion-nvim'
+  Plug 'ray-x/lsp_signature.nvim'
+  Plug 'hrsh7th/nvim-compe'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'liuchengxu/vista.vim' " TODO: this just does not work
   " color
   Plug 'rktjmp/lush.nvim', { 'branch': 'main' }
   Plug 'npxbr/gruvbox.nvim', { 'branch': 'main' }
@@ -78,7 +85,7 @@ set swapfile
 " misc
 set autoread
 set background=dark
-set completeopt=menu,noinsert,noselect
+set completeopt=menuone,noselect
 set hidden
 set laststatus=2
 set ruler
