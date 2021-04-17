@@ -29,8 +29,9 @@ if has('nvim')
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'ray-x/lsp_signature.nvim'
-  Plug 'hrsh7th/nvim-compe'
   Plug 'windwp/nvim-autopairs'
+  Plug 'RRethy/nvim-base16'
+  Plug 'hrsh7th/nvim-compe'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -38,9 +39,6 @@ if has('nvim')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'liuchengxu/vista.vim' " TODO: this just does not work
-  " color
-  Plug 'rktjmp/lush.nvim', { 'branch': 'main' }
-  Plug 'npxbr/gruvbox.nvim', { 'branch': 'main' }
 endif
 call plug#end()
 
@@ -146,7 +144,7 @@ nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>ft :Tags<CR>
 
 " indentLine
-let g:indentLine_char = '┊'
+let g:indentLine_char = '│'
 
 " rainbow
 let g:rainbow_active = 1

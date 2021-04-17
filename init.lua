@@ -128,8 +128,10 @@ set_tele_keymap('c', 'lsp_code_actions()')
 set_tele_keymap('d', 'lsp_workspace_diagnostics()')
 
 -- colorscheme
-vim.g.gruvbox_contrast_dark = 'hard'
-vim.cmd('colorscheme gruvbox')
+require('base16-colorscheme').setup('dracula')
 
 -- autopairs
 require('nvim-autopairs').setup{}
+
+-- nvim-tree
+vim.g.nvim_tree_show_icons = {}
