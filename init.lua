@@ -19,6 +19,7 @@ local lsp_attach = function(client, bufnr)
   require('lsp_signature').on_attach()
 
   -- mappings
+  -- TODO: consider using Telescope LSP pickers instead
   local prefix = '\\'
   local opts = { noremap=true, silent=true }
 
@@ -30,8 +31,16 @@ local lsp_attach = function(client, bufnr)
   set_keymap('n', prefix .. 'r', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
   set_keymap('n', prefix .. 'R', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
+  set_keymap('n', prefix .. 'e', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   set_keymap('n', prefix .. '[', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   set_keymap('n', prefix .. ']', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = false,
+    }
+  )
+
 end
 
 require('lspconfig').clangd.setup{ on_attach=lsp_attach }
@@ -90,6 +99,10 @@ inoremap <silent><expr> <C-c>     compe#close('<C-c>')
 ]])
 
 -- telescope
+require('telescope').setup{
+  defaults = {
+  }
+}
 telescope_key_prefix = [[<leader>f]]
 telescope_binding_prefix = [[<Cmd>lua require('telescope.builtin').]]
 telescope_binding_postfix = [[<Cr>]]
@@ -117,3 +130,6 @@ set_tele_keymap('d', 'lsp_workspace_diagnostics()')
 -- colorscheme
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.cmd('colorscheme gruvbox')
+
+-- autopairs
+require('nvim-autopairs').setup{}

@@ -6,7 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -30,6 +30,8 @@ if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'ray-x/lsp_signature.nvim'
   Plug 'hrsh7th/nvim-compe'
+  Plug 'windwp/nvim-autopairs'
+  Plug 'kyazdani42/nvim-tree.lua'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
   Plug 'nvim-lua/popup.nvim'
