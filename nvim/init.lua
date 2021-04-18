@@ -9,5 +9,3 @@ vim.cmd('source ~/.vimrc')
 
 require('plugin-config')
 
--- nvim-tree
-vim.g.nvim_tree_show_icons = {}
