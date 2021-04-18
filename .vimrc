@@ -102,25 +102,6 @@ set statusline+=\ %l:%c
 " ---------- mappings ----------
 let mapleader = " "
 
-" window mapping
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-nnoremap - :split<CR>
-nnoremap <Bar> :vsplit<CR>
-
-" normal mapping shotcuts
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>rg :Rg<Space>
-nnoremap <leader>af :Autoformat<CR>
-
-" quickfix-window
-nnoremap <leader>co :copen<CR>
-nnoremap <leader>cc :cclose<CR>
-
-
 " ---------- Plugin global vars and mappings ----------
 
 " cscope

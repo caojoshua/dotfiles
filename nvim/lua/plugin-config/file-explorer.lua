@@ -43,5 +43,6 @@ vim.g.nvim_tree_bindings = {
   ["p"]              = tree_cb("paste"),
   ["[g"]             = tree_cb("prev_git_item"),
   ["]g"]             = tree_cb("next_git_item"),
+  ["s"]              = "<Cmd>NvimTreeClipboard<CR>",
   ["q"]              = tree_cb("close"),
 }

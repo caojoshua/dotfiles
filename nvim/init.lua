@@ -7,5 +7,8 @@ vim.cmd('set runtimepath^=~/.vim runtimepath+=~/.vim/after')
 o.packpath = o.runtimepath
 vim.cmd('source ~/.vimrc')
 
+vim.g.mapleader = ' '
+
+require('keymaps')
 require('plugin-config')
 
