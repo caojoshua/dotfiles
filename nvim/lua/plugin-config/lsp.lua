@@ -1,31 +1,33 @@
--- LSP
-local lsp_attach = function(client, bufnr)
-  local function set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
-  end
-  local function set_keymap(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
+local util = require('util')
 
+local prefix = '\\'
+local opts = { noremap=true, silent=true }
+
+local lsp_attach = function(client, bufnr)
+  -- TODO: disabled virtual text so this isn't working
+  -- maybe just remove this plugin ... its not necessary
   require('lsp_signature').on_attach()
 
   -- mappings
   -- TODO: consider using Telescope LSP pickers instead
-  local prefix = '\\'
-  local opts = { noremap=true, silent=true }
+  local function set_keymap(key, map)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', prefix .. key, util.lua_cmd(map), opts)
+  end
 
-  set_keymap('n', prefix .. 'c', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  set_keymap('n', prefix .. 'D', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  set_keymap('n', prefix .. 'd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  set_keymap('n', prefix .. 'h', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  set_keymap('n', prefix .. 'i', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  set_keymap('n', prefix .. 'r', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
-  set_keymap('n', prefix .. 'R', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  set_keymap('c', 'vim.lsp.buf.code_action()')
+  set_keymap('D', 'vim.lsp.buf.declaration()')
+  set_keymap('d', 'vim.lsp.buf.definition()')
+  set_keymap('h', 'vim.lsp.buf.hover()')
+  set_keymap('i', 'vim.lsp.buf.implementation()')
+  set_keymap('r', 'vim.lsp.buf.references()')
+  set_keymap('R', 'vim.lsp.buf.rename()')
 
-  set_keymap('n', prefix .. 'e', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  set_keymap('n', prefix .. '[', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  set_keymap('n', prefix .. ']', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  set_keymap('e', 'vim.lsp.diagnostic.show_line_diagnostics()')
+  set_keymap('E', 'vim.lsp.diagnostic.set_loclist()')
+  set_keymap('[', 'vim.lsp.diagnostic.goto_prev()')
+  set_keymap(']', 'vim.lsp.diagnostic.goto_next()')
 
+  -- diagnostics settings
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
       virtual_text = false,
