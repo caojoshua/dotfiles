@@ -1,8 +1,9 @@
 # .zprofile
 
 # Environment Variables
-export EDITOR=vim
-export PAGER="nvim -c 'set ft=man'"
+export EDITOR=nvim
+export VISUAL=nvim
+export MANPAGER="nvim -c 'set ft=man'"
 
 # Get the aliases and functions
 if [ -f ~/.zshrc ]; then

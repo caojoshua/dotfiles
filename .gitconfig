@@ -1,0 +1,18 @@
+[alias]
+  a = add
+  b = branch
+  c = commit
+  co = checkout
+  d = diff
+  f = fetch
+  l = log
+  m = merge
+  r = rebase
+  s = status
+
+[core]
+  editor = nvim
+
+[init]
+  defaultBranch = main
+

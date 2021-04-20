@@ -11,3 +11,4 @@ ln -s ${dir}/.Xdefaults ~/.Xdefaults
 ln -s ${dir}/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s ${dir}/zsh/.zprofile ~/.zprofile
 ln -s ${dir}/zsh/.zshrc ~/.zshrc
+ln -s ${dir}/.gitconfig ~/.gitconfig
