@@ -26,6 +26,9 @@ key_bindings:
   - { key: Space, mods: Control|Alt, action: ToggleViMode }
   - { key: H, mods: Control|Alt, action: Hide }
 
+env:
+  TERM: xterm-256color
+
 # Colors (Dracula)
 colors:
   primary:
