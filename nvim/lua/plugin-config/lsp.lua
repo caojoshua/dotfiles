@@ -42,3 +42,13 @@ end
 require('lspconfig').clangd.setup{ on_attach=lsp_attach }
 require('lspconfig').tsserver.setup{ on_attach=lsp_attach }
 
+-- vim vista
+-- open vista for LSP if the buffer is attached to a LSP client. otherwise, fallback to vista ctags
+vista = function()
+  if next(vim.lsp.buf_get_clients()) == nil then
+    vim.cmd('Vista ctags')
+  else
+    vim.cmd('Vista nvim_lsp')
+  end
+end
+util.set_normal_keymap('<leader>\\\\', util.lua_cmd('vista()'))

@@ -13,7 +13,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'preservim/NERDTree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-obsession'
-Plug 'luochen1990/rainbow'
 Plug 'jremmen/vim-ripgrep'
 Plug 'majutsushi/tagbar'
 Plug 'Chiel92/vim-autoformat'
@@ -34,10 +33,11 @@ if has('nvim')
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'p00f/nvim-ts-rainbow'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'liuchengxu/vista.vim' " TODO: this just does not work
+  Plug 'liuchengxu/vista.vim'
 endif
 call plug#end()
 
