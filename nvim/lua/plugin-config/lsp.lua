@@ -51,4 +51,7 @@ vista = function()
     vim.cmd('Vista nvim_lsp')
   end
 end
-util.set_normal_keymap('<leader>\\\\', util.lua_cmd('vista()'))
+util.set_normal_keymap('<F2>', util.lua_cmd('vista()'))
+
+vim.g.vista_cursor_delay = '0'
+vim.g.vista_echo_cursor_strategy = 'scroll'

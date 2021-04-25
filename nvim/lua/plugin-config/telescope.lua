@@ -16,7 +16,7 @@ end
 
 set_tele_keymap('f', 'find_files()')
 set_tele_keymap('g', 'live_grep()')
-set_tele_keymap('b', 'buffers()')
+set_tele_keymap('b', 'buffers{ sort_lastused = true }')
 set_tele_keymap('\'', 'marks()')
 set_tele_keymap('r', 'registers()')
 set_tele_keymap('q', 'quickfix()')
