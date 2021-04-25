@@ -1,14 +1,16 @@
-require('telescope').setup{
-  defaults = {
+local setup = function()
+  require('telescope').setup{
+    defaults = {
+    }
   }
-}
+end
+
 telescope_key_prefix = [[<leader>f]]
 telescope_binding_prefix = [[<Cmd>lua require('telescope.builtin').]]
-telescope_binding_postfix = [[<Cr>]]
 local function set_tele_keymap(key, binding)
   vim.api.nvim_set_keymap('n',
                           telescope_key_prefix .. key,
-                          telescope_binding_prefix .. binding .. telescope_binding_postfix,
+                          telescope_binding_prefix.. binding .. '<cr>',
                           { noremap = true })
 end
 
@@ -26,3 +28,4 @@ set_tele_keymap('h', 'help_tags()')
 set_tele_keymap('c', 'lsp_code_actions()')
 set_tele_keymap('d', 'lsp_workspace_diagnostics()')
 
+return { setup = setup }

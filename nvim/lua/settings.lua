@@ -28,7 +28,7 @@ vim.wo.relativenumber = true
 
 -- misc
 vim.o.completeopt = 'menuone,noselect'
-vim.o.hidden = false
+vim.o.hidden = true
 vim.o.secure = true
 
 -- statusline

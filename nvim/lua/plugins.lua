@@ -12,12 +12,13 @@ local packer = require('packer')
 packer.init({
   -- compile_path seems to be broken now
   -- compile_path = vim.fn.stdpath('data'),
+  opt_default = false
 })
 
 -- load plugins
 packer.startup(function(use)
   -- packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use { 'wbthomason/packer.nvim', opt = false }
 
   -- libraries, depedencies for other plugins
   use { 'nvim-lua/popup.nvim' }
@@ -29,7 +30,7 @@ packer.startup(function(use)
   use { 'liuchengxu/vista.vim' }
 
   -- completion
-  use { 'hrsh7th/nvim-compe' }
+  use { 'hrsh7th/nvim-compe', event = 'InsertCharPre', config = require('plugin-config/completion').setup }
 
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter' }
@@ -37,14 +38,14 @@ packer.startup(function(use)
   use { 'p00f/nvim-ts-rainbow' }
 
   -- telescope
-  use { 'nvim-telescope/telescope.nvim' }
+  use { 'nvim-telescope/telescope.nvim', module = 'telescope.builtin', config = require('plugin-config/telescope').setup }
 
   -- file explorer
-  use { 'kyazdani42/nvim-tree.lua' }
+  use { 'kyazdani42/nvim-tree.lua' } 
 
   -- git
-  use { 'airblade/vim-gitgutter' }
-  use { 'tpope/vim-fugitive' }
+  use { 'airblade/vim-gitgutter', event = 'VimEnter' }
+  use { 'tpope/vim-fugitive', cmd = {'G', 'Git'} }
 
   -- colorscheme
   use { 'RRethy/nvim-base16' }
