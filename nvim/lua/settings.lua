@@ -1,3 +1,6 @@
+-- NOTE: some buffer-only options require setting the global addition as well
+-- pending https://github.com/neovim/neovim/pull/13479
+
 vim.o.secure = true
 
 -- colors
@@ -10,9 +13,13 @@ vim.o.smartcase = true
 
 -- indents
 vim.bo.autoindent = true
+vim.o.autoindent = true
 vim.bo.expandtab = true
-vim.bo.tabstop = 4
-vim.bo.shiftwidth = 4
+vim.o.expandtab = true
+vim.bo.tabstop = 2
+vim.o.tabstop = 2
+vim.bo.shiftwidth = 2
+vim.o.shiftwidth = 2
 vim.o.smarttab = true
 
 -- line numbering
