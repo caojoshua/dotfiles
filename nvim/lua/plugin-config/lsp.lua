@@ -39,8 +39,14 @@ local lsp_attach = function(client, bufnr)
 
 end
 
+-- manually installed LSP servers
 require('lspconfig').clangd.setup{ on_attach=lsp_attach }
 require('lspconfig').tsserver.setup{ on_attach=lsp_attach }
+
+-- LSP servers installed through nvim-lspinstall. Important to execute lspinstall setup after
+-- setting up manually installed servers.
+require('lspinstall').setup()
+require('lspconfig').lua.setup{ on_attach=lsp_attach }
 
 -- vim vista
 -- open vista for LSP if the buffer is attached to a LSP client. otherwise, fallback to vista ctags

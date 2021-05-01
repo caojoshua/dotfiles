@@ -26,6 +26,7 @@ packer.startup(function(use)
 
   -- LSP
   use { 'neovim/nvim-lspconfig' }
+  use { 'kabouzeid/nvim-lspinstall' }
   use { 'ray-x/lsp_signature.nvim' }
   use { 'liuchengxu/vista.vim' }
 
