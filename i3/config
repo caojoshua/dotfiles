@@ -34,7 +34,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu
-bindsym $mod+d exec dmenu_run
+bindsym $mod+space exec rofi -show drun
 
 # change focus
 bindsym $mod+h focus left

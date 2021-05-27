@@ -1,0 +1,8 @@
+configuration {
+  modi: "drun";
+  width: 60;
+  font: "mono 18";
+  hide-scrollbar: true;
+}
+
+@import "theme.rasi"
