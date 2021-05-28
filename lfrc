@@ -1,0 +1,32 @@
+# settings
+set color256
+set hidden
+set drawbox
+set incsearch
+set ratios 1:2
+set relativenumber
+
+# promptfmt (lack of lf documentation, just slightly edited the default)
+set promptfmt "\033[34;1m%w\033[0m\033[1m%f\033[0m"
+
+# mappings to default functions
+map c cd
+map i shell-pipe
+map v toggle
+map x delete
+map R source ~/.config/lf/lfrc
+map * push :glob-select<space>
+
+# bookmarks
+map g/ cd /
+map g~ cd ~
+map g. cd ~/dotfiles
+map gc cd ~/.config
+map gl cd ~/.local
+map gD cd ~/Downloads
+
+# custom functions
+map a push %touch<space>
+map A push %mkdir<space>
+
+
