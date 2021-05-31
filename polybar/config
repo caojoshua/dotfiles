@@ -1,0 +1,48 @@
+[section/bar-base]
+modules-left = bspwm
+modules-right = audio battery network time
+
+wm-restack = bspwm
+
+font-0 = "Mono:size=18;2"
+separator = "│"
+module-margin = 1
+
+[bar/monitor-main]
+inherit = section/bar-base
+monitor = DP1-2
+
+[bar/monitor-secondary]
+inherit = section/bar-base
+monitor = eDP1
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+label-focused-foreground = #00FF00
+label-separator = " /"
+
+[module/audio]
+type = internal/alsa
+label-volume = AUDIO %percentage%%
+label-muted = muted
+
+[module/battery]
+type = internal/battery
+label-charging = Charging %percentage%%
+label-discharging = Discharging %percentage%%
+label-full = BAT 100%
+full-at = 99
+
+[module/network]
+type = internal/network
+interface = wlp6s0
+label-connected = %local_ip%
+label-disconnected = disconnected
+
+[module/time]
+type = internal/date
+interval = 30
+date = %c
+label = %date%
+

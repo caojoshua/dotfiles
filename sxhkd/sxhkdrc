@@ -1,0 +1,20 @@
+### launching applications
+
+alt + @space
+  rofi -show drun
+
+alt + Return
+  alacritty
+
+
+### function keys
+
+XF86AudioRaiseVolume
+  amixer sset Master 2%+
+
+XF86AudioLowerVolume
+  amixer sset Master 2%-
+
+XF86AudioMute
+  amixer sset Master toggle
+

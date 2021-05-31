@@ -1,0 +1,27 @@
+#! /bin/sh
+
+# restart processes to support reloading config
+function restart() {
+  pkill -x $1  
+  $@ > /dev/null 2>&1 & disown
+}
+
+restart sxhkd -c $HOME/.config/sxhkd/sxhkdrc $HOME/.config/bspwm/sxhkd_bspwm
+
+restart polybar monitor-main
+polybar monitor-secondary >/dev/null 2>&1 & disown
+
+
+# bspwm setup and config
+
+bspc monitor eDP1 --reset-desktops 6 7 8 9 0
+bspc monitor DP1-2 --reset-desktops 1 2 3 4 5
+
+bspc config border_width 2
+bspc config pointer_modifier mod1
+bspc config window_gap 0
+
+
+# misc setup
+xsetroot -solid "#000000"
+

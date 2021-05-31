@@ -7,6 +7,9 @@ ln -s ${dir}/nvim ~/.config/nvim
 ln -s ${dir}/.tmux.conf ~/.tmux.conf
 ln -s ${dir}/i3/config ~/.config/i3/config
 ln -s ${dir}/i3/.i3status.conf ~/.i3status.conf
+ln -s ${dir}/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
+ln -s ${dir}/bspwm/sxhkd_bspwm ~/.config/bspwm/sxhkd_bspwm
+ln -s ${dir}/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
 ln -s ${dir}/.Xdefaults ~/.Xdefaults
 ln -s ${dir}/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s ${dir}/zsh/.zprofile ~/.zprofile
