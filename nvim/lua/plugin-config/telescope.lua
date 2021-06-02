@@ -1,9 +1,7 @@
-local setup = function()
-  require('telescope').setup{
-    defaults = {
-    }
+require('telescope').setup{
+  defaults = {
   }
-end
+}
 
 telescope_key_prefix = [[<leader>f]]
 telescope_binding_prefix = [[<Cmd>lua require('telescope.builtin').]]
@@ -28,4 +26,3 @@ set_tele_keymap('h', 'help_tags()')
 set_tele_keymap('c', 'lsp_code_actions()')
 set_tele_keymap('d', 'lsp_workspace_diagnostics()')
 
-return { setup = setup }

@@ -28,7 +28,7 @@ packer.startup(function(use)
   use { 'neovim/nvim-lspconfig' }
   use { 'kabouzeid/nvim-lspinstall' }
   use { 'ray-x/lsp_signature.nvim' }
-  use { 'liuchengxu/vista.vim' }
+  use { 'simrat39/symbols-outline.nvim' }
 
   -- completion
   use { 'hrsh7th/nvim-compe', event = 'InsertCharPre', config = require('plugin-config/completion').setup }
@@ -39,7 +39,7 @@ packer.startup(function(use)
   use { 'p00f/nvim-ts-rainbow' }
 
   -- telescope
-  use { 'nvim-telescope/telescope.nvim', module = 'telescope.builtin', config = require('plugin-config/telescope').setup }
+  use { 'nvim-telescope/telescope.nvim' }
 
   -- file explorer
   use { 'ptzz/lf.vim' }

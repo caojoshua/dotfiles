@@ -37,6 +37,20 @@ local lsp_attach = function(client, bufnr)
     }
   )
 
+  -- TODO: symbols_outline plugin is not taking these config values
+  vim.g.symbols_outline = {
+    highlight_hovered_item = false,
+    show_guides = false,
+    auto_preview = false,
+    keymaps = {
+      close = 'q',
+      goto_location = '<cr>',
+      rename_symbol = 'r',
+      code_actions = 'a',
+    }
+  }
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '\\\\', ':SymbolsOutline<cr>', opts)
+
 end
 
 -- manually installed LSP servers
@@ -48,16 +62,3 @@ require('lspconfig').tsserver.setup{ on_attach=lsp_attach }
 require('lspinstall').setup()
 require('lspconfig').lua.setup{ on_attach=lsp_attach }
 
--- vim vista
--- open vista for LSP if the buffer is attached to a LSP client. otherwise, fallback to vista ctags
-vista = function()
-  if next(vim.lsp.buf_get_clients()) == nil then
-    vim.cmd('Vista ctags')
-  else
-    vim.cmd('Vista nvim_lsp')
-  end
-end
-util.set_normal_keymap('<F2>', util.lua_cmd('vista()'))
-
-vim.g.vista_cursor_delay = '0'
-vim.g.vista_echo_cursor_strategy = 'scroll'
