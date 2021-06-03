@@ -42,7 +42,8 @@ packer.startup(function(use)
   use { 'nvim-telescope/telescope.nvim', module = 'telescope.builtin', config = require('plugin-config/telescope').setup }
 
   -- file explorer
-  use { 'kyazdani42/nvim-tree.lua' } 
+  use { 'ptzz/lf.vim' }
+  use { 'voldikss/vim-floaterm' }
 
   -- git
   use { 'airblade/vim-gitgutter', event = 'VimEnter' }
