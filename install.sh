@@ -1,18 +1,35 @@
-#!/bin/bash
+#! /bin/sh
 
-dir=~/dotfiles
+FORCE=$1
 
-ln -s ${dir}/.vimrc ~/.vimrc
-ln -s ${dir}/nvim ~/.config/nvim
-ln -s ${dir}/.tmux.conf ~/.tmux.conf
-ln -s ${dir}/i3/config ~/.config/i3/config
-ln -s ${dir}/i3/.i3status.conf ~/.i3status.conf
-ln -s ${dir}/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
-ln -s ${dir}/bspwm/sxhkd_bspwm ~/.config/bspwm/sxhkd_bspwm
-ln -s ${dir}/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
-ln -s ${dir}/.Xdefaults ~/.Xdefaults
-ln -s ${dir}/alacritty.yml ~/.config/alacritty/alacritty.yml
-ln -s ${dir}/zsh/.zprofile ~/.zprofile
-ln -s ${dir}/zsh/.zshrc ~/.zshrc
-ln -s ${dir}/.gitconfig ~/.gitconfig
-ln -s ${dir}/lfrc ~/.config/lf/lfrc
+if [[ $(which realpath) ]]
+then
+  dir=$(dirname $(realpath $0))
+else
+  dir=~/dotfiles
+fi
+
+function link() {
+  [[ $FORCE == '--force' ]] && rm -rf $2
+  mkdir -p $(dirname $2)
+  ln -s --no-target-directory ${dir}/$1 $2
+}
+
+link .vimrc ~/.vimrc
+link nvim ~/.config/nvim
+link .tmux.conf ~/.tmux.conf
+link alacritty ~/.config/alacritty
+link zsh/.zprofile ~/.zprofile
+link zsh/.zshrc ~/.zshrc
+link .gitconfig ~/.gitconfig
+link lf ~/.config/lf
+
+# linux specific config
+if [[ $(uname -a) == *Linux* ]]
+then
+  link i3 ~/.config/i3
+  link bspwm ~/.config/bspwm
+  link sxhkd ~/.config/sxhkd
+  link polybar ~/.config/polybar
+  link .Xdefaults ~/.Xdefaults
+fi

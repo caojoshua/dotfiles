@@ -10,5 +10,9 @@ if [ -f ~/.zshrc ]; then
 	. ~/.zshrc
 fi
 
-setxkbmap -option ctrl:nocaps
-xset r rate 250 50
+# linux specific config
+if [ $IS_LINUX ]; then
+  setxkbmap -option ctrl:nocaps
+  xset r rate 250 50
+  xsetroot -solid "#000000"
+fi

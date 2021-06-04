@@ -21,7 +21,3 @@ bspc config border_width 2
 bspc config pointer_modifier mod1
 bspc config window_gap 0
 
-
-# misc setup
-xsetroot -solid "#000000"
-
