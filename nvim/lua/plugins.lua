@@ -48,6 +48,8 @@ packer.startup(function(use)
   -- git
   use { 'airblade/vim-gitgutter', event = 'VimEnter' }
   use { 'tpope/vim-fugitive', cmd = {'G', 'Git'} }
+  use { 'rbgrouleff/bclose.vim' }
+  use { 'iberianpig/tig-explorer.vim' }
 
   -- colorscheme
   use { 'RRethy/nvim-base16' }
