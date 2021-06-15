@@ -12,7 +12,10 @@ local packer = require('packer')
 packer.init({
   -- compile_path seems to be broken now
   -- compile_path = vim.fn.stdpath('data'),
-  opt_default = false
+  opt_default = false,
+  git = {
+    depth = 500,
+  },
 })
 
 -- load plugins
