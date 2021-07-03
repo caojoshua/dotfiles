@@ -4,8 +4,6 @@ local prefix = '\\'
 local opts = { noremap=true, silent=true }
 
 local lsp_attach = function(client, bufnr)
-  -- TODO: disabled virtual text so this isn't working
-  -- maybe just remove this plugin ... its not necessary
   require('lsp_signature').on_attach()
 
   -- mappings
@@ -37,20 +35,25 @@ local lsp_attach = function(client, bufnr)
     }
   )
 
-  -- TODO: symbols_outline plugin is not taking these config values
-  vim.g.symbols_outline = {
-    highlight_hovered_item = false,
-    show_guides = false,
-    auto_preview = false,
-    keymaps = {
-      close = 'q',
-      goto_location = '<cr>',
-      rename_symbol = 'r',
-      code_actions = 'a',
+  require('aerial').on_attach(client)
+
+  vim.g.aerial = {
+    manage_folds = false,
+    filter_kind = {
+      "Class",
+      "Constructor",
+      "Enum",
+      "Function",
+      "Interface",
+      "Method",
+      "Struct",
     }
   }
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '\\\\', ':SymbolsOutline<cr>', opts)
-
+  util.set_normal_buf_keymap(bufnr, '<leader>tt', util.lua_cmd([[require('aerial').toggle(true)]]))
+  util.set_normal_buf_keymap(bufnr, '<leader>t[', util.lua_cmd([[require('aerial').prev()]]))
+  util.set_normal_buf_keymap(bufnr, '<leader>t]', util.lua_cmd([[require('aerial').next()]]))
+  util.set_normal_buf_keymap(bufnr, '<leader>t{', [[<cmd>AerialPrevUp<cr>]])
+  util.set_normal_buf_keymap(bufnr, '<leader>t}', [[<cmd>AerialNextUp<cr>]])
 end
 
 -- manually installed LSP servers

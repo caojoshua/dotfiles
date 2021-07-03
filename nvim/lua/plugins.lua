@@ -31,10 +31,10 @@ packer.startup(function(use)
   use { 'neovim/nvim-lspconfig' }
   use { 'kabouzeid/nvim-lspinstall' }
   use { 'ray-x/lsp_signature.nvim' }
-  use { 'simrat39/symbols-outline.nvim' }
+  use { 'stevearc/aerial.nvim' }
 
   -- completion
-  use { 'hrsh7th/nvim-compe', event = 'InsertCharPre', config = require('plugin-config/completion').setup }
+  use { 'hrsh7th/nvim-compe' }
 
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter' }
@@ -49,8 +49,8 @@ packer.startup(function(use)
   use { 'voldikss/vim-floaterm' }
 
   -- git
-  use { 'airblade/vim-gitgutter', event = 'VimEnter' }
-  use { 'tpope/vim-fugitive', cmd = {'G', 'Git'} }
+  use { 'airblade/vim-gitgutter' }
+  use { 'tpope/vim-fugitive' }
   use { 'rbgrouleff/bclose.vim' }
   use { 'iberianpig/tig-explorer.vim' }
 
@@ -62,9 +62,7 @@ packer.startup(function(use)
   use { 'tpope/vim-surround' }
 
   -- misc
-  use { 'Yggdroot/indentLine' }
   use { 'lukas-reineke/indent-blankline.nvim' }
-  use { 'windwp/nvim-autopairs' }
   use { 'christoomey/vim-tmux-navigator' }
 end
 )
