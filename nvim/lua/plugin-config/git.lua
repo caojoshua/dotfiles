@@ -12,9 +12,7 @@ util.set_normal_keymap('<leader>gr', util.cmd('Tig refs'))
 util.set_normal_keymap('<leader>[g', util.cmd('GitGutterPrevHunk'))
 util.set_normal_keymap('<leader>]g', util.cmd('GitGutterNextHunk'))
 util.set_normal_keymap('<leader>ghq', util.cmd('GitGutterQuickFix') .. util.cmd('copen'))
--- vim.g.gitgutter_use_location_list option is broken
-util.set_normal_keymap('<leader>ghl', util.lua_cmd('vim.g.gitgutter_use_location_list=1') ..
-    util.cmd('GitGutterQuickFix') .. util.lua_cmd('vim.g.gitgutter_use_location_list=0') .. util.cmd('lopen'))
+util.set_normal_keymap('<leader>ghl', util.cmd('GitGutterQuickFixCurrentFile') .. util.cmd('copen'))
 util.set_normal_keymap('<leader>ghp', util.cmd('GitGutterPreviewHunk'))
 util.set_normal_keymap('<leader>ghs', util.cmd('GitGutterStageHunk'))
 util.set_normal_keymap('<leader>ghu', util.cmd('GitGutterUndoHunk'))

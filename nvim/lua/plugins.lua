@@ -33,6 +33,9 @@ packer.startup(function(use)
   use { 'ray-x/lsp_signature.nvim' }
   use { 'stevearc/aerial.nvim' }
 
+  -- language specific
+  use { 'mfussenegger/nvim-jdtls' }
+
   -- completion
   use { 'hrsh7th/nvim-compe' }
 

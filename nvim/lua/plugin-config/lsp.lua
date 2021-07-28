@@ -15,6 +15,7 @@ local lsp_attach = function(client, bufnr)
   set_keymap('c', 'vim.lsp.buf.code_action()')
   set_keymap('D', 'vim.lsp.buf.declaration()')
   set_keymap('d', 'vim.lsp.buf.definition()')
+  set_keymap('f', 'vim.lsp.buf.formatting()')
   set_keymap('h', 'vim.lsp.buf.hover()')
   set_keymap('i', 'vim.lsp.buf.implementation()')
   set_keymap('r', 'vim.lsp.buf.references()')
@@ -63,5 +64,7 @@ require('lspconfig').tsserver.setup{ on_attach=lsp_attach }
 -- LSP servers installed through nvim-lspinstall. Important to execute lspinstall setup after
 -- setting up manually installed servers.
 require('lspinstall').setup()
+require('lspconfig').java.setup{ on_attach=lsp_attach }
 require('lspconfig').lua.setup{ on_attach=lsp_attach }
+require('lspconfig').python.setup{ on_attach=lsp_attach }
 

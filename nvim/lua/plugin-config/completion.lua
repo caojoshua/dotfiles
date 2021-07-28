@@ -4,7 +4,9 @@ require'compe'.setup {
     buffer = true;
     nvim_lsp = true;
     nvim_lua = true;
-  };
+  },
+  source_timeout = 100,
+  resolve_timeout = 400,
 }
 
 -- map with vim for now because compe be like that: https://github.com/hrsh7th/nvim-compe/issues/25

@@ -16,6 +16,10 @@ monitor = DP1-2
 inherit = section/bar-base
 monitor = eDP1
 
+[bar/monitor-three]
+inherit = section/bar-base
+monitor = HDMI1
+
 [module/bspwm]
 type = internal/bspwm
 pin-workspaces = true
