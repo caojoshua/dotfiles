@@ -13,9 +13,6 @@ exec_always --no-startup-id /home/josh/dotfiles/startup.sh
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# monitor setup
-exec --no-startup-id ~/.screenlayout/main.sh
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
