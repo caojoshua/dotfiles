@@ -27,9 +27,13 @@ link lf ~/.config/lf
 # linux specific config
 if [[ $(uname -a) == *Linux* ]]
 then
+  link startup.sh ~/.config/dotfiles-scripts/startup.sh
   link i3 ~/.config/i3
   link bspwm ~/.config/bspwm
   link sxhkd ~/.config/sxhkd
   link polybar ~/.config/polybar
   link .Xdefaults ~/.Xdefaults
 fi
+
+git submodule init
+git submodule update
