@@ -1,5 +1,8 @@
 require('telescope').setup{
   defaults = {
+    file_ignore_patterns = {
+      '.git/*'
+    }
   }
 }
 
@@ -12,7 +15,7 @@ local function set_tele_keymap(key, binding)
                           { noremap = true })
 end
 
-set_tele_keymap('f', 'find_files()')
+set_tele_keymap('f', 'find_files({hidden = true})')
 set_tele_keymap('g', 'live_grep()')
 set_tele_keymap('b', 'buffers{ sort_lastused = true }')
 set_tele_keymap('\'', 'marks()')
