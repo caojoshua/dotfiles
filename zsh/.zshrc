@@ -25,16 +25,13 @@ bindkey '^]' autosuggest-accept
 # autosuggestions from vi normal mode
 bindkey -M vicmd -s '^]' 'A^]'
 
-# support linux specific config
-[[ $(uname -a) == *Linux* ]]
-IS_LINUX=$?
-
 # aliases
 alias g=git
 alias e=${EDITOR}
 alias t=tmux
 
-if [ $IS_LINUX ]; then
+# support linux specific config
+if [[ $(uname -a) == *Linux* ]]; then
   alias ls='ls --color=auto'
 fi
 
