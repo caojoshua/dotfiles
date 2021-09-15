@@ -23,6 +23,7 @@ link zsh/.zprofile ~/.zprofile
 link zsh/.zshrc ~/.zshrc
 link .gitconfig ~/.gitconfig
 link lf ~/.config/lf
+link zathura ~/.config/zathura
 
 # linux specific config
 if [[ $(uname -a) == *Linux* ]]
