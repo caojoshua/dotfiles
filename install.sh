@@ -33,6 +33,7 @@ then
   link bspwm ~/.config/bspwm
   link sxhkd ~/.config/sxhkd
   link polybar ~/.config/polybar
+  link rofi ~/.config/rofi
   link .Xdefaults ~/.Xdefaults
 fi
 

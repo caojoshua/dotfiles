@@ -1,3 +1,5 @@
+cmd open $xdg-open $f
+
 # settings
 set hidden
 set drawbox
