@@ -37,7 +37,11 @@ packer.startup(function(use)
   use { 'mfussenegger/nvim-jdtls' }
 
   -- completion
-  use { 'hrsh7th/nvim-compe' }
+  use { 'hrsh7th/cmp-buffer'}
+  use { 'hrsh7th/cmp-nvim-lua' }
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-path' }
+  use { 'hrsh7th/nvim-cmp'}
 
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter' }
@@ -48,7 +52,7 @@ packer.startup(function(use)
   use { 'nvim-telescope/telescope.nvim' }
 
   -- file explorer
-  use { 'ptzz/lf.vim' }
+  use { 'ptzz/lf.vim', opt = true }
   use { 'voldikss/vim-floaterm' }
 
   -- git
@@ -69,4 +73,6 @@ packer.startup(function(use)
   use { 'christoomey/vim-tmux-navigator' }
 end
 )
+
+vim.cmd([[packadd lf.vim]])
 

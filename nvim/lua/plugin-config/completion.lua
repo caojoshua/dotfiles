@@ -1,17 +1,18 @@
-require'compe'.setup {
-  source = {
-    path = true;
-    buffer = true;
-    nvim_lsp = true;
-    nvim_lua = true;
+local cmp = require'cmp'
+cmp.setup({
+  mapping = {
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-c>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
   },
-  source_timeout = 100,
-  resolve_timeout = 400,
-}
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+    { name = 'nvim_lua' },
+    { name = 'path' },
+  }
+})
 
--- map with vim for now because compe be like that: https://github.com/hrsh7th/nvim-compe/issues/25
--- also compe#scroll seems to be broken
-vim.cmd([[
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-c>     compe#close('<C-c>')
-]])
