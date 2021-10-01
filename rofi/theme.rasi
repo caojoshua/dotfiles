@@ -1,8 +1,12 @@
 // mostly copy pasted from https://github.com/dracula/rofi with some personal adjustments
 
+
+/*Dracula theme based on the Purple official rofi theme*/
+
 * {
+    font: "Jetbrains Mono 18";
     foreground: #f8f8f2;
-    background-color: #282a36;
+    background: #282a36;
     active-background: #6272a4;
     urgent-background: #ff5555;
     selected-background: @active-background;
@@ -14,7 +18,7 @@
 
 #window {
     background-color: @background;
-    border:           3;
+    border:           1;
     border-radius: 6;
     border-color: @bordercolor;
     padding:          5;
@@ -78,6 +82,16 @@
 #element.alternate.active {
     background-color: @active-background;
     text-color:       @foreground;
+}
+#scrollbar {
+    width:        2px ;
+    border:       0;
+    handle-width: 8px ;
+    padding:      0;
+}
+#sidebar {
+    border:       2px dash 0px 0px ;
+    border-color: @separatorcolor;
 }
 #button.selected {
     background-color: @selected-background;
