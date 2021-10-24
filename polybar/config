@@ -10,11 +10,11 @@ module-margin = 1
 
 [bar/monitor-main]
 inherit = section/bar-base
-monitor = DP1-2
+monitor = DVI-I-2
 
 [bar/monitor-secondary]
 inherit = section/bar-base
-monitor = eDP1
+monitor = DVI-I-3
 
 [module/i3]
 type = internal/i3
@@ -23,8 +23,8 @@ label-focused-foreground = #00FF00
 label-separator = " /"
 
 [module/audio]
-type = internal/alsa
-label-volume = AUDIO %percentage%%
+type = internal/pulseaudio
+format-volume = AUDIO <label-volume>
 label-muted = muted
 
 [module/battery]
@@ -36,7 +36,7 @@ full-at = 99
 
 [module/network]
 type = internal/network
-interface = wlp6s0
+interface = wlp4s0
 label-connected = %local_ip%
 label-disconnected = disconnected
 
