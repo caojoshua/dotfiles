@@ -30,6 +30,14 @@ alias g=git
 alias e=${EDITOR}
 alias t=tmux
 
+# cd aliases
+alias 'cd/'='cd /'
+alias 'cd~'='cd ${HOME}'
+alias 'cddot'='cd ${HOME}/dotfiles'
+alias 'cdconf'='cd ${HOME}/.config'
+alias 'cddl'='cd ${HOME}/Downloads'
+alias 'cdnvim'='cd ${HOME}/.local/share/nvim/site/pack/packer'
+
 # support linux specific config
 if [[ $(uname -a) == *Linux* ]]; then
   alias ls='ls --color=auto'
