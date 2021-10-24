@@ -60,6 +60,7 @@ end
 -- manually installed LSP servers
 require('lspconfig').clangd.setup{ on_attach=lsp_attach }
 require('lspconfig').tsserver.setup{ on_attach=lsp_attach }
+require('lspconfig').rls.setup{ on_attach=lsp_attach }
 
 -- LSP servers installed through nvim-lspinstall. Important to execute lspinstall setup after
 -- setting up manually installed servers.
@@ -67,4 +68,5 @@ require('lspinstall').setup()
 require('lspconfig').java.setup{ on_attach=lsp_attach }
 require('lspconfig').lua.setup{ on_attach=lsp_attach }
 require('lspconfig').python.setup{ on_attach=lsp_attach }
+-- require('lspconfig').rust.setup{ on_attach=lsp_attach }
 

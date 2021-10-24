@@ -38,10 +38,15 @@ packer.startup(function(use)
 
   -- completion
   use { 'hrsh7th/cmp-buffer'}
+  use { 'saadparwaiz1/cmp_luasnip' }
   use { 'hrsh7th/cmp-nvim-lua' }
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-path' }
   use { 'hrsh7th/nvim-cmp'}
+
+  -- snippets
+  use { 'rafamadriz/friendly-snippets' } -- snippets collection
+  use { 'L3MON4D3/LuaSnip' } -- snippets engine
 
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter' }
@@ -52,7 +57,7 @@ packer.startup(function(use)
   use { 'nvim-telescope/telescope.nvim' }
 
   -- file explorer
-  use { 'ptzz/lf.vim', opt = true }
+  use { 'ptzz/lf.vim' }
   use { 'voldikss/vim-floaterm' }
 
   -- git
@@ -73,6 +78,3 @@ packer.startup(function(use)
   use { 'christoomey/vim-tmux-navigator' }
 end
 )
-
-vim.cmd([[packadd lf.vim]])
-
