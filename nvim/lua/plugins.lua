@@ -75,6 +75,8 @@ packer.startup(function(use)
 
   -- misc
   use { 'lukas-reineke/indent-blankline.nvim' }
+  use { 'ntpeters/vim-better-whitespace' }
+  use { 'tpope/vim-sleuth' }
   use { 'christoomey/vim-tmux-navigator' }
 end
 )

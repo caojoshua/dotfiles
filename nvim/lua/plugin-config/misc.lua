@@ -12,3 +12,6 @@ vim.g.lf_map_keys = 0
 vim.g.lf_width = 0.9
 vim.g.lf_height = 0.9
 vim.g.floaterm_opener = 'edit'
+
+-- whitespace
+util.set_normal_keymap('<F10>', [[<cmd>StripWhitespace<cr>]])
