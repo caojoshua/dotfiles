@@ -1,7 +1,7 @@
 # Joshua Cao's i3 config file
 
 # Set windows key as main modifier
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

@@ -1,30 +1,30 @@
-alt + shift + ctrl + bracketleft
+super + shift + ctrl + bracketleft
   bspc quit
 
-alt + shift + r
+super + shift + r
   ~/.config/bspwm/bspwmrc &
 
-alt + {_,shift + } q
+super + {_,shift + } q
   bspc node --{close,kill}
 
-alt + {_,shift + } {h,j,k,l}
+super + {_,shift + } {h,j,k,l}
   bspc node --{focus,swap} {west, south, north, east}
 
-alt + {_, shift + } n
+super + {_, shift + } n
   bspc desktop --focus {next, prev}.occupied
 
-alt + Tab
+super + Tab
   bspc desktop --focus last
 
-alt + {0-9}
+super + {0-9}
   bspc desktop --focus {0-9}
 
-alt + shift + {0-9}
+super + shift + {0-9}
   bspc node --to-desktop {0-9} --follow
 
-alt + shift + {comma, period}
+super + shift + {comma, period}
   bspc desktop --to-monitor {west, east} --follow
 
-alt + {t,f,shift + f}
+super + {t,f,shift + f}
   bspc node --state {tiled, "~fullscreen", "~floating"}
 

@@ -1,9 +1,9 @@
 ### launching applications
 
-alt + @space
+super + @space
   rofi -show drun
 
-alt + Return
+super + Return
   alacritty
 
 
