@@ -26,8 +26,8 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move to workspace
-bindsym $mod+ctrl+n workspace next
-bindsym $mod+ctrl+p workspace prev
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
 bindsym $mod+Tab workspace back_and_forth
 
 # move focused window

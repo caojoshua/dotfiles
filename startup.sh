@@ -17,6 +17,6 @@ restart sxhkd -c $HOME/.config/sxhkd/sxhkdrc
 restart polybar monitor-main
 polybar monitor-secondary >/dev/null 2>&1 & disown
 
-setxkbmap -option ctrl:nocaps
+# setxkbmap -option ctrl:nocaps
 xset r rate 250 50
 xsetroot -solid "#000000"

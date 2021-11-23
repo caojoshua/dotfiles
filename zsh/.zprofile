@@ -13,3 +13,4 @@ if [ -f ~/.zshrc ]; then
 fi
 
 export PATH="/usr/local/bin/aarch64-none-elf/bin:$PATH"
+export PATH="/home/josh/.cargo/bin:$PATH"

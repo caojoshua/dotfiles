@@ -52,3 +52,6 @@ autosuggestions=~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.p
 
 syntax_highlighting=~/dotfiles/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 [ -f ${syntax_highlighting} ] && source ${syntax_highlighting}
+
+# Stop ctrl-s from freezing terminal.
+stty -ixon

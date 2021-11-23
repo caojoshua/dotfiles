@@ -1,6 +1,6 @@
 local util = require('util')
 
-local prefix = '\\'
+local prefix = '<leader>l'
 local opts = { noremap=true, silent=true }
 
 local lsp_attach = function(client, bufnr)

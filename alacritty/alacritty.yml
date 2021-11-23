@@ -21,8 +21,10 @@ key_bindings:
   - { key: C, mods: Control|Alt, action: Copy }
   - { key: V, mods: Control|Alt, action: Paste }
   - { key: Minus, mods: Control|Alt, action: DecreaseFontSize }
-  - { key: Equals, mods: Control|Alt, action: IncreaseFontSize }
-  - { key: Key0, mods: Control|Alt, action: ResetFontSize }
+  # For some reason we need a shift modifier for plus. Maybe because
+  # `Plus` is a shifted symbol for QMK keyboards.
+  - { key: Plus, mods: Control|Alt|Shift, action: IncreaseFontSize }
+  - { key: Equals, mods: Control|Alt, action: ResetFontSize }
   - { key: Space, mods: Control|Alt, action: ToggleViMode }
   - { key: H, mods: Control|Alt, action: Hide }
 
