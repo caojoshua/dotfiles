@@ -12,10 +12,16 @@ function restart() {
   $@ > /dev/null 2>&1 & disown
 }
 
+export WM_MOD=super
+
+export BROWSER=firefox
+export LAUNCHER="rofi -show drun"
+export SCREENSHOT="flameshot gui"
+export TERM_EMULATOR=alacritty
+
 restart sxhkd -c $HOME/.config/sxhkd/sxhkdrc
 
-restart polybar monitor-main
-polybar monitor-secondary >/dev/null 2>&1 & disown
+restart polybar monitor-main && polybar monitor-secondary
 
 # setxkbmap -option ctrl:nocaps
 xset r rate 250 50

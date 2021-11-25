@@ -9,6 +9,9 @@ else
   dir=~/dotfiles
 fi
 
+git submodule init
+git submodule update
+
 function link() {
   [[ $FORCE == '--force' ]] && rm -rf $2
   mkdir -p $(dirname $2)
@@ -17,7 +20,8 @@ function link() {
 
 link .vimrc ~/.vimrc
 link nvim ~/.config/nvim
-link .tmux.conf ~/.tmux.conf
+link tmux/.tmux.conf ~/.tmux.conf
+link tmux/plugins/tpm ~/.tmux/plugins/tpm
 link alacritty ~/.config/alacritty
 link zsh/.zprofile ~/.zprofile
 link zsh/.zshrc ~/.zshrc
@@ -34,8 +38,8 @@ then
   link sxhkd ~/.config/sxhkd
   link polybar ~/.config/polybar
   link rofi ~/.config/rofi
+  link mopidy ~/.config/mopidy
+  link ncmpcpp ~/.config/ncmpcpp
+  link flameshot ~/.config/flameshot
   link .Xdefaults ~/.Xdefaults
 fi
-
-git submodule init
-git submodule update

@@ -1,11 +1,13 @@
 ### launching applications
 
 super + @space
-  rofi -show drun
+  sh -c "launcher"
 
 super + Return
-  alacritty
+  sh -c "$TERM_EMULATOR"
 
+super + b
+  sh -c "$BROWSER"
 
 ### function keys
 
@@ -18,3 +20,5 @@ XF86AudioLowerVolume
 XF86AudioMute
   amixer -D pulse sset Master toggle
 
+Print
+  sh -c "$SCREENSHOT"
