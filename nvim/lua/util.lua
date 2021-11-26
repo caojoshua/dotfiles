@@ -1,7 +1,11 @@
 local M = {}
 
+M.set_keymap = function(mode, key, map)
+  vim.api.nvim_set_keymap(mode, key, map, { noremap = true })
+end
+
 M.set_normal_keymap = function(key, map)
-  vim.api.nvim_set_keymap('n', key, map, { noremap = true })
+  M.set_keymap('n', key, map)
 end
 
 M.set_normal_buf_keymap = function(buf, key, map)

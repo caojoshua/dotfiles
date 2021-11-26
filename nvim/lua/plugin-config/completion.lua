@@ -27,8 +27,8 @@ cmp.setup({
 })
 
 -- luasnips
-vim.api.nvim_set_keymap('i', '<C-l>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-h>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
-vim.api.nvim_set_keymap('s', '<C-l>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
-vim.api.nvim_set_keymap('s', '<C-h>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
+vim.api.nvim_set_keymap('i', '<C-n>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
+vim.api.nvim_set_keymap('i', '<C-p>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
+vim.api.nvim_set_keymap('s', '<C-n>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
+vim.api.nvim_set_keymap('s', '<C-p>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
 require("luasnip/loaders/from_vscode").load()

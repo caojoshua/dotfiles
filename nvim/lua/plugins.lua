@@ -70,12 +70,14 @@ packer.startup(function(use)
   use { 'RRethy/nvim-base16' }
 
   -- text objects/motions
+  use { 'phaazon/hop.nvim' }
   use { 'tpope/vim-commentary' }
   use { 'tpope/vim-surround' }
 
   -- misc
   use { 'lukas-reineke/indent-blankline.nvim' }
   use { 'ntpeters/vim-better-whitespace' }
+  use { 'rmagatti/auto-session' }
   use { 'tpope/vim-sleuth' }
   use { 'christoomey/vim-tmux-navigator' }
 end

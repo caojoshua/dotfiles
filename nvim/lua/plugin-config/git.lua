@@ -9,8 +9,8 @@ util.set_normal_keymap('<leader>gl', util.cmd('Tig log'))
 util.set_normal_keymap('<leader>gr', util.cmd('Tig refs'))
 
 -- git gutter. 'gh' = git hunk
-util.set_normal_keymap('<leader>[g', util.cmd('GitGutterPrevHunk'))
-util.set_normal_keymap('<leader>]g', util.cmd('GitGutterNextHunk'))
+util.set_normal_keymap('[g', util.cmd('GitGutterPrevHunk'))
+util.set_normal_keymap(']g', util.cmd('GitGutterNextHunk'))
 util.set_normal_keymap('<leader>ghq', util.cmd('GitGutterQuickFix') .. util.cmd('copen'))
 util.set_normal_keymap('<leader>ghl', util.cmd('GitGutterQuickFixCurrentFile') .. util.cmd('copen'))
 util.set_normal_keymap('<leader>ghp', util.cmd('GitGutterPreviewHunk'))
