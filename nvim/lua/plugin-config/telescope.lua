@@ -1,8 +1,20 @@
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = {
-      '.git/*'
-    }
+      '.*/?%.git/.*',
+    },
+    mappings = {
+      i = {
+        ["<C-j>"] = require('telescope.actions').cycle_history_next,
+        ["<C-k>"] = require('telescope.actions').cycle_history_prev,
+        ["<C-d>"] = require('telescope.actions').delete_buffer,
+      },
+      n = {
+        ["<C-j>"] = require('telescope.actions').cycle_history_next,
+        ["<C-k>"] = require('telescope.actions').cycle_history_prev,
+        ["<C-d>"] = require('telescope.actions').delete_buffer,
+      },
+    },
   }
 }
 

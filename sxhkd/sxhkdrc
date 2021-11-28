@@ -1,7 +1,7 @@
 ### launching applications
 
 super + @space
-  sh -c "launcher"
+  sh -c "$LAUNCHER"
 
 super + Return
   sh -c "$TERM_EMULATOR"

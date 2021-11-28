@@ -37,7 +37,7 @@ alias 'cd~'='cd ${HOME}'
 alias 'cddot'='cd ${HOME}/dotfiles'
 alias 'cdconf'='cd ${HOME}/.config'
 alias 'cddl'='cd ${HOME}/Downloads'
-alias 'cdnvim'='cd ${HOME}/.local/share/nvim/site/pack/packer'
+alias 'cdnvim'='cd ${HOME}/.local/share/nvim/site/pack/packer/start'
 
 # support linux specific config
 if [[ $(uname -a) == *Linux* ]]; then

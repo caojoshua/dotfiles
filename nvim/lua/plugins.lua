@@ -51,6 +51,7 @@ packer.startup(function(use)
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter' }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+  use { 'nvim-treesitter/playground' }
   use { 'p00f/nvim-ts-rainbow' }
 
   -- telescope

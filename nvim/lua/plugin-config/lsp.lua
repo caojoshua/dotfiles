@@ -38,23 +38,26 @@ local lsp_attach = function(client, bufnr)
 
   require('aerial').on_attach(client)
 
-  vim.g.aerial = {
-    manage_folds = false,
-    filter_kind = {
-      "Class",
-      "Constructor",
-      "Enum",
-      "Function",
-      "Interface",
-      "Method",
-      "Struct",
-    }
+  vim.g.aerial_backends = {
+    _ = { 'treesitter', 'lsp' },
   }
-  util.set_normal_buf_keymap(bufnr, '<leader>tt', util.lua_cmd([[require('aerial').toggle(true)]]))
-  util.set_normal_buf_keymap(bufnr, '<leader>t[', util.lua_cmd([[require('aerial').prev()]]))
-  util.set_normal_buf_keymap(bufnr, '<leader>t]', util.lua_cmd([[require('aerial').next()]]))
-  util.set_normal_buf_keymap(bufnr, '<leader>t{', [[<cmd>AerialPrevUp<cr>]])
-  util.set_normal_buf_keymap(bufnr, '<leader>t}', [[<cmd>AerialNextUp<cr>]])
+  vim.g.filter_kind = {
+    "Class",
+    "Constructor",
+    "Enum",
+    "Function",
+    "Interface",
+    "Method",
+    "Struct",
+  }
+  vim.g.aerial_manage_folds = false
+  vim.g.aerial_treesitter_update_delay = 100
+
+  util.set_normal_buf_keymap(bufnr, '<F3>', util.lua_cmd([[require('aerial').toggle(true)]]))
+  util.set_normal_buf_keymap(bufnr, '<leader>[t', util.cmd('AerialPrev'))
+  util.set_normal_buf_keymap(bufnr, '<leader>]t', util.cmd('AerialNext'))
+  util.set_normal_buf_keymap(bufnr, '<leader>[T', util.cmd('AerialPrevUp'))
+  util.set_normal_buf_keymap(bufnr, '<leader>]T', util.cmd('AerialNextUp'))
 end
 
 -- manually installed LSP servers
