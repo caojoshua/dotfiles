@@ -29,7 +29,7 @@ packer.startup(function(use)
 
   -- LSP
   use { 'neovim/nvim-lspconfig' }
-  use { 'kabouzeid/nvim-lspinstall' }
+  use { 'williamboman/nvim-lsp-installer' }
   use { 'ray-x/lsp_signature.nvim' }
   use { 'stevearc/aerial.nvim' }
 
@@ -54,8 +54,14 @@ packer.startup(function(use)
   use { 'nvim-treesitter/playground' }
   use { 'p00f/nvim-ts-rainbow' }
 
+  -- debugging
+  use { 'mfussenegger/nvim-dap' }
+  use { "Pocco81/DAPInstall.nvim" }
+  use { 'rcarriga/nvim-dap-ui' }
+
   -- telescope
   use { 'nvim-telescope/telescope.nvim' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- file explorer
   use { 'ptzz/lf.vim' }

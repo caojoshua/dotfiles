@@ -15,8 +15,7 @@ vim.g.floaterm_opener = 'edit'
 
 -- hop
 require('hop').setup()
-util.set_normal_keymap('<leader>hw', util.lua_cmd([[require('hop').hint_words()]]))
-util.set_normal_keymap('<leader>hf', util.lua_cmd([[require('hop').hint_char1()]]))
+util.set_normal_keymap('<leader>/', util.lua_cmd([[require('hop').hint_words()]]))
 util.set_keymap('o', '<leader>w', util.lua_cmd([[require('hop').hint_words()]]))
 util.set_keymap('o', '<leader>f', util.lua_cmd([[require('hop').hint_char1()]]))
 util.set_keymap('o', '<leader>t', util.lua_cmd([[require('hop').hint_char1({ inclusive_jump = false })]]))

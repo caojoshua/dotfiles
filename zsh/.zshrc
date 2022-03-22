@@ -16,6 +16,7 @@ autoload -U compinit && compinit
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^e' edit-command-line
+bindkey -M vicmd -s '^e' 'i^e'
 
 # weird backspace issue with vi mode
 bindkey -v '^?' backward-delete-char
@@ -45,8 +46,12 @@ if [[ $(uname -a) == *Linux* ]]; then
 fi
 
 # plugins
-fzf=~/.fzf.zsh
-[ -f ${fzf} ] && source ${fzf}
+export PATH=${PATH}:${HOME}/dotfiles/zsh/plugins/fzf-zsh-plugin/bin
+fzf=~/dotfiles/zsh/plugins/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh
+if [ -f ${fzf} ]; then
+  export FZF_PATH=~/.config/fzf
+  source ${fzf} "${HOME}/.config/fzf"
+fi
 
 autosuggestions=~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 [ -f ${autosuggestions} ] && source ${autosuggestions}
