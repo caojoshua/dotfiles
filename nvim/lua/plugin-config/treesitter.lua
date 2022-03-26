@@ -1,9 +1,20 @@
 -- treesitter
 local util = require('util')
 
+-- disable treesitter for large files
+disable = function(_, bufnr)
+  return vim.api.nvim_buf_line_count(bufnr) > 10000
+end
+
+local highlight = {
+  enable = true,
+  disable = disable,
+}
+
 local textobjects = {
   select = {
     enable = true,
+    disable = disable,
     keymaps = {
       ["<leader>ac"] = "@class.outer",
       ["<leader>ic"] = "@class.inner",
@@ -65,8 +76,9 @@ local textobjects = {
 
 local incremental_selection = {
   enable = true,
+    disable = disable,
   keymaps = {
-    init_selection = "<F4>",
+    init_selection = "<F5>",
     node_incremental = "<C-n>",
     scope_incremental = "<C-m>",
     node_decremental = "<C-p>",
@@ -75,11 +87,12 @@ local incremental_selection = {
 
 local rainbow = {
   enable = true,
+  disable = disable,
   extended_mode = true,
 }
 
 require('nvim-treesitter.configs').setup {
-  highlight = { enable=true },
+  highlight = highlight,
   incremental_selection = incremental_selection,
   textobjects = textobjects,
   rainbow = rainbow,

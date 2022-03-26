@@ -31,7 +31,7 @@ packer.startup(function(use)
   use { 'neovim/nvim-lspconfig' }
   use { 'williamboman/nvim-lsp-installer' }
   use { 'ray-x/lsp_signature.nvim' }
-  use { 'stevearc/aerial.nvim' }
+  use { 'simrat39/symbols-outline.nvim' }
 
   -- language specific
   use { 'mfussenegger/nvim-jdtls' }
