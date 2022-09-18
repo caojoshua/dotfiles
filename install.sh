@@ -39,7 +39,10 @@ then
   link polybar ~/.config/polybar
   link rofi ~/.config/rofi
   link mopidy ~/.config/mopidy
+  link mpd ~/.config/mpd
   link ncmpcpp ~/.config/ncmpcpp
   link flameshot ~/.config/flameshot
   link .Xdefaults ~/.Xdefaults
+
+  mkdir ~/.config/mpd/playlists
 fi

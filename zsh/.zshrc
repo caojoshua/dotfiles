@@ -31,6 +31,7 @@ alias g=git
 alias e=${EDITOR}
 alias s=sudo
 alias t=tmux
+alias clearnvimswap="rm ~/.local/share/nvim/swap/*"
 
 # cd aliases
 alias 'cd/'='cd /'
@@ -44,6 +45,10 @@ alias 'cdnvim'='cd ${HOME}/.local/share/nvim/site/pack/packer/start'
 if [[ $(uname -a) == *Linux* ]]; then
   alias ls='ls --color=auto'
 fi
+
+function mpdplaylist {
+  find $1 -name "*.mp3" > ~/.config/mpd/playlists/$2.m3u
+}
 
 # plugins
 export PATH=${PATH}:${HOME}/dotfiles/zsh/plugins/fzf-zsh-plugin/bin
@@ -61,3 +66,5 @@ syntax_highlighting=~/dotfiles/zsh/plugins/fast-syntax-highlighting/fast-syntax-
 
 # Stop ctrl-s from freezing terminal.
 stty -ixon
+
+alias nvim=/usr/bin/nvim

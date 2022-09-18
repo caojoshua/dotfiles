@@ -37,16 +37,18 @@ local lsp_attach = function(client, bufnr)
   )
 
   --- symbols outline
-  util.set_normal_keymap('<F4>', '<cmd>SymbolsOutline<cr>')
+  require('symbols-outline').setup()
+  util.set_normal_keymap('<F3>', '<cmd>SymbolsOutline<cr>')
 end
 
--- manually installed LSP servers
-require('lspconfig').clangd.setup{ on_attach=lsp_attach }
-require('lspconfig').tsserver.setup{ on_attach=lsp_attach }
+lsp_servers = { "clangd", "rust_analyzer", "sumneko_lua" }
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = lsp_servers
+})
 
--- LSP servers installed through nvim-lspinstall. Important to execute lspinstall setup after
--- setting up manually installed servers.
-local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.on_server_ready(function(server)
-    server:setup({ on_attach=lsp_attach })
-end)
+for _, lsp_server in pairs(lsp_servers) do
+  require('lspconfig')[lsp_server].setup {
+    on_attach=lsp_attach
+  }
+end

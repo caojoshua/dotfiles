@@ -1,6 +1,6 @@
 [section/bar-base]
 modules-left = i3
-modules-right = audio battery network time
+modules-right = network mpd audio battery time
 
 wm-restack = i3
 
@@ -10,17 +10,32 @@ module-margin = 1
 
 [bar/monitor-main]
 inherit = section/bar-base
-monitor = DVI-I-2
+monitor = HDMI-1
 
 [bar/monitor-secondary]
 inherit = section/bar-base
-monitor = DVI-I-3
+monitor = DVI-I-1
 
 [module/i3]
 type = internal/i3
 pin-workspaces = true
 label-focused-foreground = #00FF00
 label-separator = " /"
+
+[module/network]
+type = internal/network
+interface = wlp4s0
+label-connected = %local_ip%
+label-disconnected = disconnected
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+format-online = <toggle> <label-song>
+label-song = %title%
+icon-play = [play]
+icon-pause = [pause]
 
 [module/audio]
 type = internal/pulseaudio
@@ -33,12 +48,6 @@ label-charging = Charging %percentage%%
 label-discharging = Discharging %percentage%%
 label-full = BAT 100%
 full-at = 99
-
-[module/network]
-type = internal/network
-interface = wlp4s0
-label-connected = %local_ip%
-label-disconnected = disconnected
 
 [module/time]
 type = internal/date

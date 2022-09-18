@@ -21,6 +21,9 @@ map * push :glob-select<space>
 # bookmarks
 map g/ cd /
 map g~ cd ~
+map gr ${{
+  lf -remote "send $id cd $OLDPWD"
+}}
 map g. cd ~/dotfiles
 map gc cd ~/.config
 map gl cd ~/.local

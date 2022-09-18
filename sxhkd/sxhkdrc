@@ -20,5 +20,14 @@ XF86AudioLowerVolume
 XF86AudioMute
   amixer -D pulse sset Master toggle
 
+XF86AudioPlay
+  mpc toggle
+
+XF86AudioPrev
+  mpc prev
+
+XF86AudioNext
+  mpc next
+
 Print
   sh -c "$SCREENSHOT"

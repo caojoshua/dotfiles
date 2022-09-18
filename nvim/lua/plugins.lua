@@ -28,8 +28,9 @@ packer.startup(function(use)
   use { 'nvim-lua/plenary.nvim' }
 
   -- LSP
+  use { 'williamboman/mason.nvim' }
+  use { 'williamboman/mason-lspconfig.nvim' }
   use { 'neovim/nvim-lspconfig' }
-  use { 'williamboman/nvim-lsp-installer' }
   use { 'ray-x/lsp_signature.nvim' }
   use { 'simrat39/symbols-outline.nvim' }
 
@@ -49,7 +50,7 @@ packer.startup(function(use)
   use { 'L3MON4D3/LuaSnip' } -- snippets engine
 
   -- treesitter
-  use { 'nvim-treesitter/nvim-treesitter' }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
   use { 'nvim-treesitter/playground' }
   use { 'p00f/nvim-ts-rainbow' }
