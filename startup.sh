@@ -23,6 +23,9 @@ restart sxhkd -c $HOME/.config/sxhkd/sxhkdrc
 
 restart polybar monitor-main && polybar monitor-secondary
 
+# Mandarin input
+restart fcitx5
+
 # setxkbmap -option ctrl:nocaps
 xset r rate 250 50
 xsetroot -solid "#000000"

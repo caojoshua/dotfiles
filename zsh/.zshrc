@@ -66,5 +66,3 @@ syntax_highlighting=~/dotfiles/zsh/plugins/fast-syntax-highlighting/fast-syntax-
 
 # Stop ctrl-s from freezing terminal.
 stty -ixon
-
-alias nvim=/usr/bin/nvim
