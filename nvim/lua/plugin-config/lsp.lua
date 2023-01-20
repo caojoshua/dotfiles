@@ -15,16 +15,14 @@ local lsp_attach = function(client, bufnr)
   set_keymap('c', 'vim.lsp.buf.code_action()')
   set_keymap('D', 'vim.lsp.buf.declaration()')
   set_keymap('d', 'vim.lsp.buf.definition()')
-  set_keymap('f', 'vim.lsp.buf.formatting()')
+  set_keymap('f', 'vim.lsp.buf.format()')
   set_keymap('h', 'vim.lsp.buf.hover()')
   set_keymap('i', 'vim.lsp.buf.implementation()')
   set_keymap('r', 'vim.lsp.buf.references({ includeDeclaration = false })')
   set_keymap('R', 'vim.lsp.buf.rename()')
 
-  set_keymap('e', 'vim.lsp.diagnostic.show_line_diagnostics()')
-  set_keymap('E', 'vim.lsp.diagnostic.set_loclist()')
-  set_keymap('[', 'vim.lsp.diagnostic.goto_prev()')
-  set_keymap(']', 'vim.lsp.diagnostic.goto_next()')
+  set_keymap('e', 'vim.diagnostic.open_float()')
+  set_keymap('E', 'vim.diagnostic.setloclist()')
 
   -- diagnostics settings
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

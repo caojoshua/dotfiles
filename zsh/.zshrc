@@ -26,12 +26,17 @@ bindkey '^]' autosuggest-accept
 # autosuggestions from vi normal mode
 bindkey -M vicmd -s '^]' 'A^]'
 
+# history settings
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=1000
+
 # aliases
 alias g=git
 alias e=${EDITOR}
 alias s=sudo
 alias t=tmux
-alias clearnvimswap="rm ~/.local/share/nvim/swap/*"
+alias clearnvimswap="rm ~/.local/share/nvim/swap/*; rm ~/.local/state/nvim/swap/*"
 
 # cd aliases
 alias 'cd/'='cd /'
