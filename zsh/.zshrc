@@ -8,6 +8,9 @@ unsetopt CASE_GLOB
 setopt GLOB_DOTS
 setopt VI
 
+# ZSH environment variables
+KEYTIMEOUT=1
+
 # COMPLETION: man zshcompsys
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 autoload -U compinit && compinit

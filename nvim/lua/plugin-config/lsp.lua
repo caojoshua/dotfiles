@@ -39,7 +39,7 @@ local lsp_attach = function(client, bufnr)
   util.set_normal_keymap('<F3>', '<cmd>SymbolsOutline<cr>')
 end
 
-lsp_servers = { "clangd", "rust_analyzer", "sumneko_lua" }
+local lsp_servers = { "clangd", "pyright", "rust_analyzer", "lua_ls" }
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = lsp_servers
