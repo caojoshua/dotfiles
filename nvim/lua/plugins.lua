@@ -36,6 +36,7 @@ packer.startup(function(use)
 
   -- language specific
   use { 'mfussenegger/nvim-jdtls' }
+  use { 'folke/neodev.nvim' }
 
   -- completion
   use { 'hrsh7th/cmp-buffer'}
@@ -57,7 +58,6 @@ packer.startup(function(use)
 
   -- debugging
   use { 'mfussenegger/nvim-dap' }
-  use { "Pocco81/DAPInstall.nvim" }
   use { 'rcarriga/nvim-dap-ui' }
 
   -- telescope
@@ -71,8 +71,6 @@ packer.startup(function(use)
   -- git
   use { 'airblade/vim-gitgutter' }
   use { 'tpope/vim-fugitive' }
-  use { 'rbgrouleff/bclose.vim' }
-  use { 'iberianpig/tig-explorer.vim' }
 
   -- colorscheme
   use { 'RRethy/nvim-base16' }

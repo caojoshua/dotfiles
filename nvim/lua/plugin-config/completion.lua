@@ -1,7 +1,6 @@
 local util = require('util')
 
 local cmp = require('cmp')
-local snip = require('luasnip')
 
 cmp.setup({
   snippet = {
@@ -13,7 +12,7 @@ cmp.setup({
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-c>'] = cmp.mapping.close(),
-    ['<Cr>'] = cmp.mapping.confirm({ select = true }),
+    ['<Cr>'] = cmp.mapping.confirm({ select = false }),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
   },
@@ -23,12 +22,12 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'path' },
     { name = 'buffer' },
-  }
+  },
 })
 
 -- luasnips
-vim.api.nvim_set_keymap('i', '<C-n>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-p>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
+vim.api.nvim_set_keymap('i', '<Tab>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
+vim.api.nvim_set_keymap('i', '<S-Tab>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
 vim.api.nvim_set_keymap('s', '<C-n>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
-vim.api.nvim_set_keymap('s', '<C-p>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
+vim.api.nvim_set_keymap('s', '<S-Tab>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
 require("luasnip/loaders/from_vscode").lazy_load()

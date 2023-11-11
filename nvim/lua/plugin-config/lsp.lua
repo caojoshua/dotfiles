@@ -35,16 +35,19 @@ local lsp_attach = function(client, bufnr)
   )
 
   --- symbols outline
-  require('symbols-outline').setup()
+  require('symbols-outline').setup({
+    show_relative_numbers = true,
+  })
   util.set_normal_keymap('<F3>', '<cmd>SymbolsOutline<cr>')
 end
 
-local lsp_servers = { "clangd", "pyright", "rust_analyzer", "lua_ls" }
+local lsp_servers = { "clangd", "pyright", "rust_analyzer", "lua_ls", "tsserver" }
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = lsp_servers
 })
 
+require("neodev").setup()
 for _, lsp_server in pairs(lsp_servers) do
   require('lspconfig')[lsp_server].setup {
     on_attach=lsp_attach

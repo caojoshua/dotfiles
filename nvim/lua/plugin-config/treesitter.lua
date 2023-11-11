@@ -3,7 +3,7 @@ local util = require('util')
 
 -- disable treesitter for large files
 disable = function(_, bufnr)
-  return vim.api.nvim_buf_line_count(bufnr) > 10000
+  return vim.api.nvim_buf_line_count(bufnr) > 8000
 end
 
 local highlight = {
@@ -18,31 +18,12 @@ local textobjects = {
     keymaps = {
       ["<leader>ac"] = "@class.outer",
       ["<leader>ic"] = "@class.inner",
-      ["<leader>/"] = "@comment.outer",
       ["<leader>ai"] = "@conditional.outer",
       ["<leader>ii"] = "@conditional.inner",
       ["<leader>af"] = "@function.outer",
       ["<leader>if"] = "@function.inner",
       ["<leader>al"] = "@loop.outer",
       ["<leader>il"] = "@loop.inner",
-      ["<leader>ap"] = "@parameter.outer",
-      ["<leader>ip"] = "@parameter.inner",
-      ["<leader>s"] = "@statement.outer",
-    },
-  },
-  swap = {
-    enable = true,
-    swap_next = {
-      ["<leader>tc"] = "@class.outer",
-      ["<leader>tf"] = "@function.outer",
-      ["<leader>tp"] = "@parameter.inner",
-      ["<leader>ts"] = "@statement.outer",
-    },
-    swap_previous = {
-      ["<leader>tC"] = "@class.outer",
-      ["<leader>tF"] = "@function.outer",
-      ["<leader>tP"] = "@parameter.inner",
-      ["<leader>tS"] = "@statement.outer",
     },
   },
   move = {

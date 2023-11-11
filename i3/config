@@ -116,10 +116,6 @@ bindsym $mod+r mode "resize"
 # rename workspace
 bindsym $mod+comma exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
-# move workspaces across monitors
-bindsym $mod+shift+comma move workspace to output left
-bindsym $mod+shift+period move workspace to output right
-
 # startup programs
 exec i3-msg "workspace $ws1; exec alacritty"
 exec i3-msg "workspace $ws2; exec firefox"

@@ -4,7 +4,7 @@ local util = require('util')
 require('base16-colorscheme').setup('dracula')
 
 -- indents
-vim.g.indentLine_char = '│'
+require("ibl").setup()
 
 -- file manager
 util.set_normal_keymap('<F2>', '<cmd>Lf<cr>')
@@ -19,6 +19,9 @@ util.set_normal_keymap('<leader>/', util.lua_cmd([[require('hop').hint_words()]]
 util.set_keymap('o', '<leader>w', util.lua_cmd([[require('hop').hint_words()]]))
 util.set_keymap('o', '<leader>f', util.lua_cmd([[require('hop').hint_char1()]]))
 util.set_keymap('o', '<leader>t', util.lua_cmd([[require('hop').hint_char1({ inclusive_jump = false })]]))
+
+-- sessions
+require('auto-session').setup()
 
 -- whitespace
 util.set_normal_keymap('<F10>', [[<cmd>StripWhitespace<cr>]])

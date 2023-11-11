@@ -28,6 +28,7 @@ local function set_tele_keymap(key, binding)
 end
 
 set_tele_keymap('f', 'find_files({hidden = true})')
+set_tele_keymap('F', 'git_files({hidden = true})')
 set_tele_keymap('g', 'live_grep()')
 set_tele_keymap('b', 'buffers{ ignore_current_buffer = true, sort_mru = true }')
 set_tele_keymap('\'', 'marks()')
@@ -41,6 +42,5 @@ set_tele_keymap('o', 'vim_options()')
 set_tele_keymap('k', 'keymaps()')
 set_tele_keymap('m', [[man_pages({sections = {'ALL'}})]])
 set_tele_keymap('h', 'help_tags()')
-set_tele_keymap('c', 'lsp_code_actions()')
-set_tele_keymap('d', 'lsp_workspace_diagnostics()')
+set_tele_keymap('c', 'commands()')
 
