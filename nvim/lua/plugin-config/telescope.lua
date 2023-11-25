@@ -1,8 +1,5 @@
 require('telescope').setup{
   defaults = {
-    file_ignore_patterns = {
-      '.*/?%.git/.*',
-    },
     mappings = {
       i = {
         ["<C-j>"] = require('telescope.actions').cycle_history_next,
@@ -15,8 +12,10 @@ require('telescope').setup{
         ["<C-d>"] = require('telescope.actions').delete_buffer,
       },
     },
-  }
+  },
 }
+
+require('telescope').load_extension('fzf')
 
 telescope_key_prefix = [[<leader>f]]
 telescope_binding_prefix = [[<Cmd>lua require('telescope.builtin').]]

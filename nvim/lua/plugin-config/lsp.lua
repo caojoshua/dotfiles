@@ -34,11 +34,16 @@ local lsp_attach = function(client, bufnr)
     }
   )
 
-  --- symbols outline
-  require('symbols-outline').setup({
-    show_relative_numbers = true,
+  --- aerial
+  require('aerial').setup({
+    layout = {
+      win_opts = {
+        number = true,
+        relativenumber = true,
+      },
+    },
   })
-  util.set_normal_keymap('<F3>', '<cmd>SymbolsOutline<cr>')
+  util.set_normal_keymap('<F3>', '<cmd>AerialToggle<cr>')
 end
 
 local lsp_servers = { "clangd", "pyright", "rust_analyzer", "lua_ls", "tsserver" }

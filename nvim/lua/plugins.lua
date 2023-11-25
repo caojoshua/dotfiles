@@ -20,7 +20,7 @@ require("lazy").setup({
   'williamboman/mason-lspconfig.nvim',
   'neovim/nvim-lspconfig',
   'ray-x/lsp_signature.nvim',
-  'simrat39/symbols-outline.nvim',
+  'stevearc/aerial.nvim',
   -- language specific
   'mfussenegger/nvim-jdtls',
   'folke/neodev.nvim',

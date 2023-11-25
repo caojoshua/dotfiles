@@ -1,5 +1,4 @@
--- treesitter
-local util = require('util')
+local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
 
 -- disable treesitter for large files
 disable = function(_, bufnr)
@@ -55,9 +54,16 @@ local textobjects = {
   },
 }
 
+vim.keymap.set("n", ";", ts_repeat_move.repeat_last_move)
+vim.keymap.set("n", ",", ts_repeat_move.repeat_last_move_opposite)
+vim.keymap.set("n", "f", ts_repeat_move.builtin_f)
+vim.keymap.set("n", "F", ts_repeat_move.builtin_F)
+vim.keymap.set("n", "t", ts_repeat_move.builtin_t)
+vim.keymap.set("n", "T", ts_repeat_move.builtin_T)
+
 local incremental_selection = {
   enable = true,
-    disable = disable,
+  disable = disable,
   keymaps = {
     init_selection = "<F4>",
     node_incremental = "<C-n>",
