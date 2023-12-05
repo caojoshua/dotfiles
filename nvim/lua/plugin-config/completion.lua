@@ -26,8 +26,9 @@ cmp.setup({
 })
 
 -- luasnips
-vim.api.nvim_set_keymap('i', '<Tab>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
-vim.api.nvim_set_keymap('i', '<S-Tab>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
-vim.api.nvim_set_keymap('s', '<C-n>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
-vim.api.nvim_set_keymap('s', '<S-Tab>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
+-- Do I want to set these keymaps? They conflict with cmp keymaps, and I do not like setting insert mode keymaps.
+-- vim.api.nvim_set_keymap('i', '<C-n>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
+-- vim.api.nvim_set_keymap('i', '<C-p>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
+-- vim.api.nvim_set_keymap('s', '<C-n>', util.lua_cmd([[require('luasnip').jump(1)]]), { noremap = true })
+-- vim.api.nvim_set_keymap('s', '<C-p>', util.lua_cmd([[require('luasnip').jump(-1)]]), { noremap = true })
 require("luasnip/loaders/from_vscode").lazy_load()
