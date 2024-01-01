@@ -1,7 +1,7 @@
 local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
 
 -- disable treesitter for large files
-disable = function(_, bufnr)
+local disable = function(_, bufnr)
   return vim.api.nvim_buf_line_count(bufnr) > 8000
 end
 

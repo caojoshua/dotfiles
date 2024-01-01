@@ -4,7 +4,12 @@ local util = require('util')
 require('base16-colorscheme').setup('dracula')
 
 -- indents
-require("ibl").setup()
+require("ibl").setup({
+  scope = {
+    show_start = false,
+    show_end = false,
+  }
+})
 
 -- file manager
 util.set_normal_keymap('<F2>', '<cmd>Lf<cr>')
