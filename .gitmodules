@@ -13,3 +13,6 @@
 [submodule "alacritty/plugins/alacritty-theme"]
 	path = alacritty/plugins/alacritty-theme
 	url = https://github.com/alacritty/alacritty-theme.git
+[submodule "alacritty/alacritty-theme"]
+	path = alacritty/alacritty-theme
+	url = git@github.com:alacritty/alacritty-theme.git
