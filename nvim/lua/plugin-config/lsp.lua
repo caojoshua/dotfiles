@@ -46,7 +46,7 @@ local lsp_attach = function(client, bufnr)
   util.set_normal_keymap('<F3>', '<cmd>AerialToggle<cr>')
 end
 
-local lsp_servers = { "clangd", "pyright", "rust_analyzer", "lua_ls", "tsserver" }
+local lsp_servers = { "clangd", "gopls", "pyright", "rust_analyzer", "lua_ls", "tsserver" }
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = lsp_servers

@@ -45,6 +45,7 @@ local gdb = {
 
 dap.configurations.c = gdb
 dap.configurations.cpp = gdb
+dap.configurations.go = gdb
 
 dapui.setup()
 
@@ -64,6 +65,7 @@ local function set_keymap(key, map)
 end
 
 set_keymap('b', 'require("dap").toggle_breakpoint()')
+vim.keymap.set("n", '<leader>dB', function() require("dap").set_breakpoint(vim.fn.input("[DAP] condition: ")) end)
 set_keymap('c', 'require("dap").continue()')
 set_keymap('i', 'require("dap").step_into()')
 set_keymap('o', 'require("dap").step_out()')
