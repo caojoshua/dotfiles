@@ -12,6 +12,7 @@ require('telescope').setup{
         ["<C-d>"] = require('telescope.actions').delete_buffer,
       },
     },
+    wrap_results = true,
   },
 }
 
