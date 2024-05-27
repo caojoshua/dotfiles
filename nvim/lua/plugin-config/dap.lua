@@ -10,7 +10,7 @@ vim.g.setup_dap_and_run = function()
   require('dap').continue()
 end
 
-local dap, dapui = require("dap"), require("dapui")
+local dap = require("dap")
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
@@ -47,7 +47,36 @@ dap.configurations.c = gdb
 dap.configurations.cpp = gdb
 dap.configurations.go = gdb
 
-dapui.setup()
+local dapui = require('dapui')
+dapui.setup({
+  layouts = { {
+    elements = { {
+      id = "scopes",
+      size = 0.25
+    }, {
+      id = "breakpoints",
+      size = 0.25
+    }, {
+      id = "stacks",
+      size = 0.25
+    }, {
+      id = "watches",
+      size = 0.25
+    } },
+    position = "left",
+    size = 50
+  }, {
+    elements = { {
+      id = "console",
+      size = 0.25
+    }, {
+      id = "repl",
+      size = 0.75
+    } },
+    position = "bottom",
+    size = 15
+  } },
+})
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
@@ -58,6 +87,19 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  desc = "autocommands on DAP window enter",
+  pattern = { "\\[dap-repl\\]", "DAP *" },
+  callback = function(args)
+    vim.schedule(function()
+      local win = vim.fn.bufwinid(args.buf)
+      vim.api.nvim_set_option_value("number", true, { win = win })
+      vim.api.nvim_set_option_value("relativenumber", true, { win = win })
+      vim.api.nvim_set_option_value("wrap", true, { win = win })
+    end)
+  end
+})
 
 local prefix = '<leader>d'
 local function set_keymap(key, map)

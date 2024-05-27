@@ -35,19 +35,14 @@ HISTSIZE=10000
 SAVEHIST=1000
 
 # aliases
-alias g=git
 alias e=${EDITOR}
+alias g=git
 alias s=sudo
 alias t=tmux
-alias clearnvimswap="rm ~/.local/share/nvim/swap/*; rm ~/.local/state/nvim/swap/*"
 
-# cd aliases
-alias 'cd/'='cd /'
-alias 'cd~'='cd ${HOME}'
-alias 'cddot'='cd ${HOME}/dotfiles'
-alias 'cdconf'='cd ${HOME}/.config'
-alias 'cddl'='cd ${HOME}/Downloads'
-alias 'cdnvim'='cd ${HOME}/.local/share/nvim/'
+# neovim aliases
+alias gdbdap"=gdbserver localhost:1234"
+alias clearnvimswap="rm ~/.local/share/nvim/swap/*; rm ~/.local/state/nvim/swap/*"
 
 # support linux specific config
 if [[ $(uname -a) == *Linux* ]]; then
@@ -74,3 +69,18 @@ syntax_highlighting=~/dotfiles/zsh/plugins/fast-syntax-highlighting/fast-syntax-
 
 # Stop ctrl-s from freezing terminal.
 stty -ixon
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/josh/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/josh/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/josh/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/josh/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
