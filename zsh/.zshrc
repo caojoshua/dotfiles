@@ -41,7 +41,8 @@ alias s=sudo
 alias t=tmux
 
 # neovim aliases
-alias gdbdap"=gdbserver localhost:1234"
+alias gdbdap="gdbserver localhost:1234"
+alias pydap="python3 -m debugpy --listen 1234 --wait-for-client"
 alias clearnvimswap="rm ~/.local/share/nvim/swap/*; rm ~/.local/state/nvim/swap/*"
 
 # support linux specific config

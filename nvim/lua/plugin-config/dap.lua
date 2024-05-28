@@ -42,10 +42,28 @@ local gdb = {
     stopAtEntry = true,
   },
 }
-
 dap.configurations.c = gdb
 dap.configurations.cpp = gdb
 dap.configurations.go = gdb
+
+dap.adapters.debugpy = {
+  type = 'server',
+  host = '127.0.0.1',
+  port = 1234,
+}
+
+dap.configurations.python = {
+  {
+    type = 'debugpy',
+    request = 'attach',
+    name = 'Attach to debugpy :1234',
+    connect = function()
+      local host = '127.0.0.1'
+      local port = 1234;
+      return { host = host, port = port }
+    end,
+  },
+}
 
 local dapui = require('dapui')
 dapui.setup({
