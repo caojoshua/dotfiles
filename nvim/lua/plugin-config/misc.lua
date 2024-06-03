@@ -11,6 +11,21 @@ require("ibl").setup({
   }
 })
 
+-- formatting
+require("conform").setup({
+  formatters_by_ft = {
+    c = { "clang-format" },
+    python = { "autopep8" },
+  },
+})
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+  pattern = {"*.c", "*.cpp", "*.h", "*.hpp", "*.py"},
+  callback = function()
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end
+}
+)
+
 -- file manager
 util.set_normal_keymap('<F2>', '<cmd>Lf<cr>')
 vim.g.lf_map_keys = 0

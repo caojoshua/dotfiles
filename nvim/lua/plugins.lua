@@ -64,6 +64,7 @@ require("lazy").setup({
   'tpope/vim-commentary',
   'tpope/vim-surround',
   -- misc
+  'stevearc/conform.nvim',
   'lukas-reineke/indent-blankline.nvim',
   'ntpeters/vim-better-whitespace',
   'rmagatti/auto-session',
