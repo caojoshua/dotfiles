@@ -21,7 +21,7 @@ require("conform").setup({
 vim.api.nvim_create_autocmd({"BufEnter"}, {
   pattern = {"*.c", "*.cpp", "*.h", "*.hpp", "*.py"},
   callback = function()
-    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr({timeout=3000})"
   end
 }
 )
