@@ -30,6 +30,7 @@ vim.wo.relativenumber = true
 vim.o.completeopt = 'menuone,noselect'
 vim.o.hidden = true
 vim.o.secure = true
+vim.o.fixeol = false
 
 -- statusline
 local statusline_components = {
