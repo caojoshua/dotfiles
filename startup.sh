@@ -26,6 +26,10 @@ restart polybar monitor-main && polybar monitor-secondary
 # Mandarin input
 restart fcitx5
 
+# blue light filter based on Washington time
+pkill redshift
+redshift -l 47:-122
+
 # setxkbmap -option ctrl:nocaps
 xset r rate 250 50
 xsetroot -solid "#000000"
