@@ -46,15 +46,51 @@ local lsp_attach = function(client, bufnr)
   util.set_normal_keymap('<F3>', '<cmd>AerialToggle<cr>')
 end
 
-local lsp_servers = { "clangd", "gopls", "pyright", "rust_analyzer", "lua_ls", "tsserver" }
+local lsp_servers = { "clangd", "gopls", "pyright", "rust_analyzer", "lua_ls", "tsserver", "zls" }
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = lsp_servers
 })
-
 require("neodev").setup()
+
+require('lspconfig.configs')['tblgen-lsp-server'] = {
+  default_config = {
+    cmd = { '/home/josh/src/mlir/llvm-project/build/bin/tblgen-lsp-server' },
+    filetypes = {'td'},
+    root_dir = require('lspconfig').util.root_pattern(".git"),
+    autostart = true,
+    on_attach=lsp_attach,
+  };
+}
+local custom_servers = { 'tblgen-lsp-server' }
+
+-- FIXME: figure out all the MLIR LSP stuff
 for _, lsp_server in pairs(lsp_servers) do
+  if lsp_server == "clangd" then
+    require('lspconfig')[lsp_server].setup {
+      on_attach = lsp_attach,
+      filetypes = { 'cpp', 'h', 'inc' }
+    }
+  else
+    require('lspconfig')[lsp_server].setup {
+      on_attach = lsp_attach
+    }
+  end
+end
+for _, lsp_server in pairs(custom_servers) do
   require('lspconfig')[lsp_server].setup {
     on_attach=lsp_attach
   }
 end
+
+-- additional filetypes
+vim.filetype.add({
+ extension = {
+  td = "td",
+ },
+})
+vim.filetype.add({
+ extension = {
+  inc = "inc",
+ },
+})
