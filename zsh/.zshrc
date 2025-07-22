@@ -45,6 +45,17 @@ alias gdbdap="gdbserver localhost:1234"
 alias pydap="python3 -m debugpy --listen 1234 --wait-for-client"
 alias clearnvimswap="rm ~/.local/share/nvim/swap/*; rm ~/.local/state/nvim/swap/*"
 
+alias buildllvm="cmake -GNinja -Bbuild -Hllvm \
+    -DCMAKE_C_COMPILER=clang \
+    -DCMAKE_CXX_COMPILER=clang++ \
+    -DLLVM_ENABLE_LLD=ON \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DLLVM_ENABLE_ASSERTIONS=ON \
+    -DLLVM_CCACHE_BUILD=ON \
+    -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+    -DBUILD_SHARED_LIBS=ON"
+
+
 # support linux specific config
 if [[ $(uname -a) == *Linux* ]]; then
   alias ls='ls --color=auto'
