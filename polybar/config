@@ -24,7 +24,7 @@ label-separator = " /"
 
 [module/network]
 type = internal/network
-interface = wlp4s0
+interface = wlp7s0
 label-connected = %local_ip%
 label-disconnected = disconnected
 
