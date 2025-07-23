@@ -41,7 +41,6 @@ then
   link mopidy ~/.config/mopidy
   link mpd ~/.config/mpd
   link ncmpcpp ~/.config/ncmpcpp
-  link flameshot ~/.config/flameshot
   link .Xdefaults ~/.Xdefaults
 
   mkdir ~/.config/mpd/playlists

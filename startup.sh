@@ -16,7 +16,7 @@ export WM_MOD=super
 
 export BROWSER=firefox
 export LAUNCHER="rofi -show drun"
-export SCREENSHOT="flameshot gui"
+export SCREENSHOT="spectacle"
 export TERM_EMULATOR=alacritty
 
 restart sxhkd -c $HOME/.config/sxhkd/sxhkdrc
