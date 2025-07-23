@@ -3,13 +3,15 @@ local util = require('util')
 local prefix = '<leader>l'
 local opts = { noremap=true, silent=true }
 
-local lsp_attach = function(client, bufnr)
+local lsp_attach = function(args)
+  -- local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+  local buf = args.buf
   require('lsp_signature').on_attach()
 
   -- mappings
   -- TODO: consider using Telescope LSP pickers instead
   local function set_keymap(key, map)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', prefix .. key, util.lua_cmd(map), opts)
+    vim.api.nvim_buf_set_keymap(buf, 'n', prefix .. key, util.lua_cmd(map), opts)
   end
 
   set_keymap('c', 'vim.lsp.buf.code_action()')
@@ -46,51 +48,13 @@ local lsp_attach = function(client, bufnr)
   util.set_normal_keymap('<F3>', '<cmd>AerialToggle<cr>')
 end
 
-local lsp_servers = { "clangd", "gopls", "pyright", "rust_analyzer", "lua_ls", "tsserver", "zls" }
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('my.lsp', {}),
+  callback = lsp_attach,
+})
+
+local lsp_servers = { "clangd", "gopls", "pyright", "rust_analyzer", "lua_ls", "ts_ls", "zls" }
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = lsp_servers
-})
-require("neodev").setup()
-
-require('lspconfig.configs')['tblgen-lsp-server'] = {
-  default_config = {
-    cmd = { '/home/josh/src/mlir/llvm-project/build/bin/tblgen-lsp-server' },
-    filetypes = {'td'},
-    root_dir = require('lspconfig').util.root_pattern(".git"),
-    autostart = true,
-    on_attach=lsp_attach,
-  };
-}
-local custom_servers = { 'tblgen-lsp-server' }
-
--- FIXME: figure out all the MLIR LSP stuff
-for _, lsp_server in pairs(lsp_servers) do
-  if lsp_server == "clangd" then
-    require('lspconfig')[lsp_server].setup {
-      on_attach = lsp_attach,
-      filetypes = { 'cpp', 'h', 'inc' }
-    }
-  else
-    require('lspconfig')[lsp_server].setup {
-      on_attach = lsp_attach
-    }
-  end
-end
-for _, lsp_server in pairs(custom_servers) do
-  require('lspconfig')[lsp_server].setup {
-    on_attach=lsp_attach
-  }
-end
-
--- additional filetypes
-vim.filetype.add({
- extension = {
-  td = "td",
- },
-})
-vim.filetype.add({
- extension = {
-  inc = "inc",
- },
 })

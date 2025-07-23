@@ -72,15 +72,10 @@ local incremental_selection = {
   },
 }
 
-local rainbow = {
-  enable = true,
-  disable = disable,
-  extended_mode = true,
-}
 
 require('nvim-treesitter.configs').setup {
   highlight = highlight,
   incremental_selection = incremental_selection,
   textobjects = textobjects,
-  rainbow = rainbow,
 }
+require('rainbow-delimiters.setup').setup{}

@@ -13,8 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   -- libraries, depedencies for other plugins
-  'nvim-lua/popup.nvim',
   'nvim-lua/plenary.nvim',
+  'nvim-neotest/nvim-nio',
   -- LSP
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
@@ -22,8 +22,10 @@ require("lazy").setup({
   'ray-x/lsp_signature.nvim',
   'stevearc/aerial.nvim',
   -- language specific
-  'mfussenegger/nvim-jdtls',
-  'folke/neodev.nvim',
+  {
+    'folke/lazydev.nvim',
+    ft = "lua"
+  },
   -- completion
   'hrsh7th/cmp-buffer',
   'saadparwaiz1/cmp_luasnip',
@@ -37,11 +39,12 @@ require("lazy").setup({
   -- treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate'
+    build = ':TSUpdate',
+    lazy = False
   },
   'nvim-treesitter/nvim-treesitter-textobjects',
   'nvim-treesitter/playground',
-  'p00f/nvim-ts-rainbow',
+  'hiphish/rainbow-delimiters.nvim',
   -- debugging
   'mfussenegger/nvim-dap',
   'rcarriga/nvim-dap-ui',
@@ -69,5 +72,4 @@ require("lazy").setup({
   'ntpeters/vim-better-whitespace',
   'rmagatti/auto-session',
   'tpope/vim-sleuth',
-  'christoomey/vim-tmux-navigator',
 })
